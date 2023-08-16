@@ -33,6 +33,13 @@ $formatter = new CustomFormatter();
                     </span>
                 </td>
                 <td class="tdgridicon">
+                    <span onclick="location.href='<?= site_url('history') ?>'">
+                        <i class="fal fa-history tablinks" id style="font-size: 25px; padding-top: 14px;"></i>
+                        <br>
+                        <?= lang('Lang.home.history') ?>
+                    </span>
+                </td>
+                <!-- <td class="tdgridicon">
                     <span onclick="location.href='<?= site_url('promotion') ?>'">
                         <i class="fal fa-gift button--resize tablinks" id style="font-size: 25px; padding-top: 13px;"></i>
                         <br>
@@ -45,7 +52,7 @@ $formatter = new CustomFormatter();
                         <br>
                         <?= lang('Lang.home.reward') ?>
                     </span>
-                </td>
+                </td> -->
             </tr>
             <tr>
                 <td class="tdgridicon">
@@ -55,13 +62,13 @@ $formatter = new CustomFormatter();
                         <?= lang('Lang.home.change_pass') ?>
                     </span>
                 </td>
-                <td class="tdgridicon">
+                <!-- <td class="tdgridicon">
                     <span onclick="location.href='<?= site_url('history') ?>'">
                         <i class="fal fa-history tablinks" id style="font-size: 25px; padding-top: 14px;"></i>
                         <br>
                         <?= lang('Lang.home.history') ?>
                     </span>
-                </td>
+                </td> -->
                 <td class="tdgridicon">
                     <span onclick="location.href='<?= site_url('playgame') ?>'">
                         <i class="fal fa-gamepad-alt tablinks" id style="font-size: 25px; padding-top: 14px;"></i>

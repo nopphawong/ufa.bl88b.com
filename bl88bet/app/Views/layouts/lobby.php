@@ -13,13 +13,13 @@ $formatter = new CustomFormatter();
         <div class="headmain">
             <table width="100%">
                 <tr>
-                    <td style="width: 15%;text-align: center; padding-left: 15px;  ">
+                    <!-- <td style="width: 15%;text-align: center; padding-left: 15px;  ">
                         <img src="<?= base_url() ?>assets/images/logo.png" width="50px">
                     </td>
                     <td style="width: 50%;text-align: left; font-size: 18px;">
                         <i class="fas fa-user" style="font-size: 16px;color: #fad275;"></i> <?= session()->data->name ?><br>
                         <img src="<?= base_url() ?>assets/fonts/kbank.svg" width="17px"> <span><?= $formatter->bank_ac_no_format(session()->data->bankno) ?></span>
-                    </td>
+                    </td> -->
                     <td style="width: 15%;text-align: right; ">
                         <table align="right">
                             <tr>
@@ -40,6 +40,15 @@ $formatter = new CustomFormatter();
         <div class="containmoney">
             <table width="100%">
                 <tr>
+                    <td style="width: 15%;text-align: center; padding-left: 15px;  ">
+                        <img src="<?= base_url() ?>assets/images/logo.png" width="50px">
+                    </td>
+                    <td style="width: 50%;text-align: right; font-size: 18px;">
+                        <i class="fas fa-user" style="font-size: 16px;color: #fad275;"></i> <?= session()->data->name ?><br>
+                        <img src="<?= base_url() ?>assets/fonts/kbank.svg" width="17px"> <span><?= $formatter->bank_ac_no_format(session()->data->bankno) ?></span>
+                    </td>
+                </tr>
+                <!-- <tr>
                     <td width="50%" style="padding-left: 20px;">
                         <a href="<?= site_url('/') ?>">
                             <i style="cursor: pointer;" class="fal fa-wallet"></i>
@@ -52,10 +61,10 @@ $formatter = new CustomFormatter();
                             <?= number_to_currency(session()->webbalance, 'THB', 'th', 2); ?>
                         </span>
                     </td>
-                </tr>
+                </tr> -->
             </table>
             <hr style="margin: 5px; border-top:1px solid #4a506d;">
-            <div style="padding-left: 20px;margin-top: 10px; margin-bottom: 15px;">
+            <!-- <div style="padding-left: 20px;margin-top: 10px; margin-bottom: 15px;">
                 <i class="fad fa-gift" style="color:#fad275;"></i> โปรโมชั่น : ไม่รับโบนัส
             </div>
             <table width="100%">
@@ -69,7 +78,7 @@ $formatter = new CustomFormatter();
                             <?= lang('Lang.home.commission') ?></button>
                     </td>
                 </tr>
-            </table>
+            </table> -->
         </div>
         <!-- END  ส่วนหัว /ข้อมูลส่วนตัว----------------------------------------------- -->
 

@@ -33,7 +33,7 @@
 
     </div>
     <div style="text-align: center; margin-top: 40px;">
-        <button type="submit" class="mcolor colorbtn01" onclick="location.href='index.php'"><i class="fal fa-sign-in"></i> <?= lang('Lang.login.login') ?></button>
+        <button type="submit" class="mcolor colorbtn01"><i class="fal fa-sign-in"></i> <?= lang('Lang.login.login') ?></button>
     </div>
 </form>
 <div onclick="location.href='<?= site_url('register') ?>'" class="needregister bkcolor"><i class="fal fa-user-plus"></i> <?= lang('Lang.register.register') ?></div>
