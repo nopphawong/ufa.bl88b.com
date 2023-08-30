@@ -1,3 +1,10 @@
+<?php
+
+use App\Libraries\CustomFormatter;
+
+$formatter = new CustomFormatter();
+?>
+
 <?= $this->extend('layouts/lobby'); ?>
 
 <?= $this->section('content'); ?>
@@ -27,28 +34,28 @@
             </button>
             <div class="panel">
                 <div style="padding-top: 20px; padding-bottom: 20px;">
-                    <div align="center" class="tabletruewallet">
-                        <div style="text-align: center; width: 100%; font-size: 13px; padding: 5px;">
-                            <img src="<?= base_url() ?>assets/fonts/scb.svg" width="70px" style="margin-bottom: 5px;"><br>
-                            ธนาคารไทยพาณิชย์
-                            <br>
-                            859-2-59209-0<br>
-                            จีรพล มุสิกบุญเลิศ <br>
-                            <button onclick="myAlertTop()" class="copybtn mcolor">คัดลอก<span hidden>859-2-59209-0</span></button>
-                        </div>
+                    <div align="center" class="tabletruewallet" style="display: block;"> <!-- When bank more than 1 then remove this -> style="display: block;" -->
+                        <!-- <div style=" text-align: center; width: 100%; font-size: 13px; padding: 5px;">
+                        <img src="<?= base_url() ?>assets/fonts/scb.svg" width="70px" style="margin-bottom: 5px;"><br>
+                        ธนาคารไทยพาณิชย์
+                        <br>
+                        859-2-59209-0<br>
+                        จีรพล มุสิกบุญเลิศ <br>
+                        <button onclick="myAlertTop()" class="copybtn mcolor">คัดลอก<span hidden>859-2-59209-0</span></button>
+                    </div> -->
                         <div style="text-align: center; width: 100%; font-size: 13px; padding: 5px;">
                             <img src="<?= base_url() ?>assets/fonts/kbank_1.svg" width="70px" style="margin-bottom: 5px;"><br>
-                            กสิกรไทย
+                            <?= $formatter->bank_name_format($result->data->tbankid) ?>
                             <br>
-                            861-2-16048-2<br>
-                            จีรพล มุสิกบุญเลิศ<br>
-                            <button onclick="myAlertTop()" class="copybtn mcolor">คัดลอก<span hidden>861-2-16048-2</span></button>
+                            <?= $formatter->bank_ac_no_format($result->data->tbankno) ?><br>
+                            <?= $result->data->tbankname ?><br>
+                            <button onclick="myAlertTop()" class="copybtn mcolor">คัดลอก<span hidden><?= $result->data->tbankno ?></span></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="pdingaccord">
+        <!-- <div class="pdingaccord">
             <button class="accordion" style="font-size: 20px;"><img src="<?= base_url() ?>assets/images/truewallet.png" height="30px">
                 &nbsp;<span style="color: #ed1c24;">true</span><span style="color: #f38020">money</span><span style="color: #fff"> wallet</span></button>
             <div class="panel">
@@ -83,7 +90,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- End Deposit section -->
@@ -112,8 +119,8 @@
             submitHandler: function(form) {
                 const method = $(form).attr('method')
                 const formData = new FormData(form)
-                formData.set('bankid', '<?= $result->data->bankid ?>')
-                formData.set('bankno', '<?= $result->data->bankno ?>')
+                formData.set('bankid', '<?= $result->data->tbankid ?>')
+                formData.set('bankno', '<?= $result->data->tbankno ?>')
                 $.ajax({
                     url: '<?= base_url('/deposit/submit') ?>',
                     method,

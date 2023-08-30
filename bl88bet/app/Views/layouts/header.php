@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
     <!-- Our Custom CSS -->
-    <?= link_tag('assets/css/style.css?v=1.0.1') ?>
+    <?= link_tag('assets/css/style.css?v=1.0.5') ?>
 
     <!-- Loader CSS -->
     <?= link_tag('assets/css/loader.css?v=1.1') ?>

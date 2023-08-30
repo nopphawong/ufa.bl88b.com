@@ -263,6 +263,7 @@
                             // NOTE: Not requrest OTP.
                             stepOneToTwo(JSON.parse(response))
 
+                            // NOTE: If using OTP.
                             // const {
                             //     status,
                             //     msg,
@@ -425,7 +426,7 @@
                             }
                         } catch (err) {
                             console.log(err);
-                            swalError(`<?= lang('Lang.dialog.confirm_btn') ?>', ${err}`)
+                            swalError('<?= lang('Lang.dialog.confirm_btn') ?>', err)
                         }
                     },
                     error: function(err) {

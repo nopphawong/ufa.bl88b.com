@@ -7,12 +7,13 @@ class Deposit extends Home
     public function index()
     {
         $body = [
-            'user' => session()->data->userid,
-            'token' => session()->data->token,
             'web' => session()->data->web,
+            'webuser' => session()->data->webuser,
         ];
+        // print_r($body);
+        // exit();
         $service = new APIService();
-        $response = $service->serverService('m_bankdeposit', POST, $body);
+        $response = $service->serverService('m_ibankdeposit', POST, $body);
         $result = json_decode($response);
         $this->viewData['result'] = $result;
         return $this->cv->pageView('pages/deposit/index', $this->headerInfo, $this->viewData);
@@ -32,9 +33,10 @@ class Deposit extends Home
                 'tobankid' => $this->request->getVar('bankid'),
                 'tobankno' => $this->request->getVar('bankno'),
             ];
-
+            print_r($body);
+            exit;
             $service = new APIService();
-            $response = $service->serverService('m_udeposit', POST, $body);
+            $response = $service->serverService('m_ideposit', POST, $body);
             $result = json_decode($response);
             return $response;
         }

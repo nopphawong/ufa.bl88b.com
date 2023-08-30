@@ -16,7 +16,7 @@ $locale = $language->getLocale();
 <div id="history" class="tabcontent">
     <div class="headerprocess"><i class="fal fa-history"></i> ประวัติ</div>
     <div class="containprocess " style="margin-top: 10px;">
-        <table style="width: 100%;">
+        <!-- <table style="width: 100%;">
             <thead style="text-align: center;">
                 <th class="headhistory active">
                     <button id="btnhistoryhis" onclick="getTransactionHistory('all')"><i class="fal fa-history" style="color: #aeb2ff;"></i>
@@ -31,7 +31,7 @@ $locale = $language->getLocale();
                         ประวัติการถอน</button>
                 </th>
             </thead>
-        </table>
+        </table> -->
         <div id="historyhis">
             แสดงข้อมูล <span style="color: #aeb2ff;">ฝาก/ถอนเงิน</span> ย้อนหลัง
             <div id="all" class="containloophisdps">
@@ -45,14 +45,27 @@ $locale = $language->getLocale();
                                         <tr>
                                             <td width="50%" style="padding-top: 7px;">
                                                 <table>
-                                                    <tr>
-                                                        <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/fonts/kbank_1.svg"></td>
-                                                        <td style="text-align: left; line-height: 20px;">
-                                                            <span class="spanofbankhis"><?= lang('Lang.transactions_history.bank_name', [$formatter->transactionBank($item->frombank)]) ?></span>
-                                                            <br>
-                                                            <span class="spanofbankhis"><?= $formatter->transactionBankAccount($item->frombank) ?></span>
-                                                        </td>
-                                                    </tr>
+                                                    <?php if ($item->type == 'ฝาก') : ?>
+                                                        <tr>
+                                                            <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/fonts/<?= $formatter->transactionBankIcon($item->frombank) ?>.svg"></td>
+                                                            <td style="text-align: left; line-height: 20px;">
+                                                                <span class="spanofbankhis"><?= lang('Lang.transactions_history.bank_name', [$formatter->transactionBank($item->frombank)]) ?></span>
+                                                                <br>
+                                                                <span class="spanofbankhis"><?= $formatter->transactionBankAccount($item->frombank) ?></span>
+
+                                                            </td>
+                                                        </tr>
+                                                    <?php else : ?>
+                                                        <tr>
+                                                            <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/fonts/<?= $formatter->transactionBankIcon($item->tobank) ?>.svg"></td>
+                                                            <td style="text-align: left; line-height: 20px;">
+                                                                <span class="spanofbankhis"><?= lang('Lang.transactions_history.bank_name', [$formatter->transactionBank($item->tobank)]) ?></span>
+                                                                <br>
+                                                                <span class="spanofbankhis"><?= $formatter->transactionBankAccount($item->tobank) ?></span>
+
+                                                            </td>
+                                                        </tr>
+                                                    <?php endif; ?>
                                                 </table>
                                             </td>
                                             <td width="50%" style="text-align: right; line-height: 20px;">
@@ -160,25 +173,38 @@ $locale = $language->getLocale();
                         } else {
                             let body = ''
                             let content = ''
+                            let condition = ''
                             if (data.length) {
                                 const thBath = new Intl.NumberFormat('th-TH', {
                                     style: 'currency',
                                     currency: 'THB',
                                 })
                                 for (const item of data) {
-                                    content += `<div class="${transactionTypeBackground(item.type)}">
-                                <table width="100%">
-                                    <tr>
-                                        <td width="50%" style="padding-top: 7px;">
-                                            <table>
-                                                <tr>
+                                    if (item.type == 'ฝาก') {
+                                        condition = `<tr>
                                                     <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/images/bank/${bankIcon(item.frombank)}.svg"></td>
                                                     <td style="text-align: left; line-height: 20px;">
                                                         <span class="spanofbankhis">${bankNameFormat(item.frombank)}</span>
                                                         <br>
                                                         <span class="spanofbankhis">${bankAccountNumberFormat(item.frombank)}</span>
                                                     </td>
-                                                </tr>
+                                                </tr>`
+                                    } else {
+                                        condition = `<tr>
+                                                    <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/images/bank/${bankIcon(item.tobank)}.svg"></td>
+                                                    <td style="text-align: left; line-height: 20px;">
+                                                        <span class="spanofbankhis">${bankNameFormat(item.tobank)}</span>
+                                                        <br>
+                                                        <span class="spanofbankhis">${bankAccountNumberFormat(item.tobank)}</span>
+                                                    </td>
+                                                </tr>`
+                                    }
+                                    content += `<div class="${transactionTypeBackground(item.type)}">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="50%" style="padding-top: 7px;">
+                                            <table>
+                                                ${condition}
                                             </table>
                                         </td>
                                         <td width="50%" style="text-align: right; line-height: 20px;">
@@ -213,11 +239,11 @@ $locale = $language->getLocale();
      */
     function transactionTypeBackground(type) {
         switch (type) {
-            case '1':
+            case 'ฝาก':
                 return 'historyofdps';
-            case '2':
+            case 'ถอน':
                 return 'historyofwd';
-            case '3':
+            case 'เพิ่มโบนัส':
                 return 'historyofdps';
             default:
                 return 'historyofwd';
@@ -226,13 +252,13 @@ $locale = $language->getLocale();
 
     function bankIcon(value) {
         const splitValue = value.split('-')
-        if (splitValue.length != 3) return '???'
+        if (splitValue.length < 2 && splitValue.length > 3) return '???'
         return splitValue[0].toLowerCase()
     }
 
     function bankNameFormat(value) {
         const splitValue = value.split('-')
-        if (splitValue.length != 3) return '???'
+        if (splitValue.length < 2 && splitValue.length > 3) return '???'
         let bankName = ''
         switch (splitValue[0].toLowerCase()) {
             case 'kbank':
@@ -298,7 +324,7 @@ $locale = $language->getLocale();
 
     function bankAccountNumberFormat(value) {
         const splitValue = value.split('-')
-        if (splitValue.length != 3) return '???'
+        if (splitValue.length < 2 && splitValue.length > 3) return '???'
         const strBankNo = splitValue[1]
         strFirst = strBankNo.substr(0, 3)
         strSecond = strBankNo.substr(3, 1)
@@ -310,11 +336,11 @@ $locale = $language->getLocale();
 
     function transactionType($type) {
         switch ($type) {
-            case '1':
+            case 'ฝาก':
                 return '<?= lang('Lang.transactions_history.deposit') ?>';
-            case '2':
+            case 'ถอน':
                 return '<?= lang('Lang.transactions_history.withdraw') ?>';
-            case '3':
+            case 'เพิ่มโบนัส':
                 return '<?= lang('Lang.transactions_history.add_bonus') ?>';
             default:
                 return '<?= lang('Lang.transactions_history.reduce_bonus') ?>';
@@ -323,11 +349,11 @@ $locale = $language->getLocale();
 
     function transctionTypeIcon(type) {
         switch (type) {
-            case '1':
+            case 'ฝาก':
                 return 'fal fa-plus-circle plushis';
-            case '2':
+            case 'ถอน':
                 return 'fal fa-minus-circle minushis';
-            case '3':
+            case 'เพิ่มโบนัส':
                 return 'fal fa-plus-circle plushis';
             default:
                 return 'fal fa-minus-circle minushis';

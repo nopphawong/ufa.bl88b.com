@@ -30,6 +30,9 @@ class Home extends BaseController
             'web' => session()->data->web,
             'webuser' => session()->data->webuser,
         ];
+        // NOTE: Fix new user then set webbalance = 0
+        session()->set(['webbalance' => 0]);
+
         $service = new APIService();
         $response = $service->serverService('m_webbalance', POST, $body);
         $result = json_decode($response);

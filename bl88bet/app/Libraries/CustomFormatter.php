@@ -56,9 +56,8 @@ class CustomFormatter
      */
     public static function transactionBank($input)
     {
-
         $split = explode('-', $input);
-        if (count($split) == 3) {
+        if (count($split) == 2 || count($split) == 3) {
             $customFormatter = new CustomFormatter;
             return $customFormatter->bank_name_format($split[0]);
         } else {
@@ -72,9 +71,23 @@ class CustomFormatter
     public static function transactionBankAccount($input)
     {
         $split = explode('-', $input);
-        if (count($split) == 3) {
+        if (count($split) == 2 || count($split) == 3) {
             $customFormatter = new CustomFormatter;
             return $customFormatter->bank_ac_no_format($split[1]);
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * Transaction bank icon.
+     */
+    public static function transactionBankIcon($input)
+    {
+        $split = explode('-', $input);
+        if (count($split) == 2 || count($split) == 3) {
+            $customFormatter = new CustomFormatter;
+            return strtolower($split[0]);
         } else {
             return '';
         }
@@ -86,11 +99,11 @@ class CustomFormatter
     public static function transactionTypeBackground($type)
     {
         switch ($type) {
-            case '1':
+            case 'ฝาก':
                 return 'historyofdps';
-            case '2':
+            case 'ถอน':
                 return 'historyofwd';
-            case '3':
+            case 'เพิ่มโบนัส':
                 return 'historyofdps';
             default:
                 return 'historyofwd';
@@ -103,11 +116,11 @@ class CustomFormatter
     public static function transctionTypeIcon($type)
     {
         switch ($type) {
-            case '1':
+            case 'ฝาก':
                 return 'fal fa-plus-circle plushis';
-            case '2':
+            case 'ถอน':
                 return 'fal fa-minus-circle minushis';
-            case '3':
+            case 'เพิ่มโบนัส':
                 return 'fal fa-plus-circle plushis';
             default:
                 return 'fal fa-minus-circle minushis';

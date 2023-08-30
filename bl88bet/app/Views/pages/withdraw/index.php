@@ -67,7 +67,6 @@ $formatter = new CustomFormatter()
         $.validator.addMethod(
             'check_credit',
             function(value, element) {
-                console.log(Number(value), Number('<?= session()->webbalance ?>'));
                 return Number(value) < Number('<?= session()->webbalance ?>')
             }
         )
@@ -94,7 +93,6 @@ $formatter = new CustomFormatter()
             submitHandler: function(form) {
                 const formData = new FormData(form)
                 const method = $(form).attr('method')
-                console.log(formData.get('withdraw_amount'));
                 $.ajax({
                     url: '<?= base_url('/withdraw/submit') ?>',
                     method,
@@ -107,25 +105,26 @@ $formatter = new CustomFormatter()
                     },
                     success: function(response) {
                         spinner('hide')
-                        try {
-                            const {
-                                status,
-                                msg,
-                                deposit_id
-                            } = JSON.parse(response)
-                            if (!status) {
-                                swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
-                            } else {
-                                swalFlashAlert(msg)
-                                setTimeout(function() {
-                                    window.location = '/transactions-history'
-                                }, 1000)
-                            }
-                        } catch (err) {
-                            toastr.error(err, '', {
-                                timeOut: 5000
-                            })
-                        }
+                        console.log(response);
+                        // try {
+                        //     const {
+                        //         status,
+                        //         msg,
+                        //         deposit_id
+                        //     } = JSON.parse(response)
+                        //     if (!status) {
+                        //         swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
+                        //     } else {
+                        //         swalFlashAlert(msg)
+                        //         setTimeout(function() {
+                        //             window.location = '/history'
+                        //         }, 1000)
+                        //     }
+                        // } catch (err) {
+                        //     toastr.error(err, '', {
+                        //         timeOut: 5000
+                        //     })
+                        // }
                     },
                     error: function(err) {
                         console.log(err);

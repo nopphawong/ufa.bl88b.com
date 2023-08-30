@@ -13,20 +13,16 @@ class APIService extends BaseController
         $endpoints = [
             'm_checkexits',
             'm_bankverifyx',
-            'm_registerx',
+            'm_register',
             'm_login',
             'm_sentotp',
-            'm_forgetpass',
+            // 'm_forgetpass',
             'm_webbalance',
-            'm_weblistgame',
-            'm_weblogin',
-            'm_uchangepass',
-            'm_uwithdraw',
-            'm_bankdeposit',
-            'm_udeposit',
-            'm_udidwidlists',
-            'm_udepositlists',
-            'm_uwithdrawlists',
+            // 'm_uchangepass',
+            'm_ibankdeposit',
+            'm_ideposit',
+            'm_iwithdraw',
+            'm_ididwidlists',
         ];
 
         if (in_array($path, $endpoints)) {

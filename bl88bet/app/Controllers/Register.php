@@ -56,7 +56,7 @@ class Register extends BaseController
                 'otpref' => 'PDFDA'
             ];
             $service = new APIService();
-            $response = $service->serverService('m_registerx', POST, $body);
+            $response = $service->serverService('m_register', POST, $body);
             return $response;
         }
     }

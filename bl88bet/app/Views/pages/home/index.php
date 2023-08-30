@@ -70,7 +70,8 @@ $formatter = new CustomFormatter();
                     </span>
                 </td> -->
                 <td class="tdgridicon">
-                    <span onclick="location.href='<?= site_url('playgame') ?>'">
+                    <!-- <span onclick="location.href='<?= site_url('playgame') ?>'"> -->
+                    <span onclick="actionPlaygame()">
                         <i class="fal fa-gamepad-alt tablinks" id style="font-size: 25px; padding-top: 14px;"></i>
                         <br>
                         <?= lang('Lang.home.play_game') ?>
@@ -106,13 +107,108 @@ $formatter = new CustomFormatter();
 </div>
 <!-- end Section 1 main -->
 
+
+
 <!-- swiper js -->
 <script src="assets/js/swiper-bundle.min_1.js"></script>
 
 <script>
+    // const formAction = document.createElement('form')
     $(function() {
-        opentab('section01')
+        opentab('section01');
+
+        //NOTE: Create Form.
+        // formAction.setAttribute('action', '')
+        // formAction.setAttribute('id', 'form1')
+        // formAction.setAttribute('method', 'post')
+        // formAction.setAttribute('target', '_blank')
+
+        // const eventTragetInput = document.createElement('input')
+        // eventTragetInput.setAttribute('type', 'hidden')
+        // eventTragetInput.setAttribute('name', '__EVENTTARGET')
+        // eventTragetInput.setAttribute('id', '__EVENTTARGET')
+        // eventTragetInput.setAttribute('value', 'btnSignIn')
+
+        // const eventArgumentInput = document.createElement('input')
+        // eventArgumentInput.setAttribute('type', 'hidden')
+        // eventArgumentInput.setAttribute('name', '__EVENTARGUMENT')
+        // eventArgumentInput.setAttribute('id', '__EVENTARGUMENT')
+        // eventArgumentInput.setAttribute('value', '')
+
+        // const viewStateInput = document.createElement('input')
+        // viewStateInput.setAttribute('type', 'hidden')
+        // viewStateInput.setAttribute('name', '__VIEWSTATE')
+        // viewStateInput.setAttribute('id', '__VIEWSTATE')
+        // viewStateInput.setAttribute('value', '')
+
+        // const validationInput = document.createElement('input')
+        // validationInput.setAttribute('type', 'hidden')
+        // validationInput.setAttribute('name', '__EVENTVALIDATION')
+        // validationInput.setAttribute('id', '__EVENTVALIDATION')
+        // validationInput.setAttribute('value', '')
+
+        // const viewStateGenInput = document.createElement('input')
+        // viewStateGenInput.setAttribute('type', 'hidden')
+        // viewStateGenInput.setAttribute('name', '__VIEWSTATEGENERATOR')
+        // viewStateGenInput.setAttribute('id', '__VIEWSTATEGENERATOR')
+        // viewStateGenInput.setAttribute('value', '')
+
+        // const usernameInput = document.createElement('input')
+        // usernameInput.setAttribute('type', 'text')
+        // usernameInput.setAttribute('name', 'txtUserName')
+        // usernameInput.setAttribute('id', 'txtUserName')
+        // usernameInput.setAttribute('value', '<?= session()->data->webuser ?>')
+
+        // const passwordInput = document.createElement('input')
+        // passwordInput.setAttribute('type', 'password')
+        // passwordInput.setAttribute('name', 'password')
+        // passwordInput.setAttribute('id', 'password')
+        // passwordInput.setAttribute('value', '<?= session()->data->webpass ?>')
+
+        // formAction.appendChild(eventTragetInput)
+        // formAction.appendChild(eventArgumentInput)
+        // formAction.appendChild(viewStateInput)
+        // formAction.appendChild(validationInput)
+        // formAction.appendChild(viewStateGenInput)
+        // formAction.appendChild(usernameInput)
+        // formAction.appendChild(passwordInput)
+
     })
+
+    const prepare_form = async () => {
+        // document.body.appendChild(formAction)
+        fetch("https://auth1.ufalogin.co/get_data.php")
+            .then(response => response.json())
+            .then(data => {
+                // NOTE: Hiddem form.
+                // document.getElementById('form1').style.display = 'none'
+                // NOTE: Set value in form.
+                document.getElementById("__VIEWSTATE").value = data[0]
+                document.getElementById("__EVENTVALIDATION").value = data[1]
+                document.getElementById("__VIEWSTATEGENERATOR").value = data[2]
+                document.querySelector("form").action = data[3]
+            })
+    }
+
+    prepare_form();
+
+    const actionPlaygame = () => {
+        $('#play_game').modal('show')
+    }
+
+    const submitPlayGames = () => {
+        const username = $('#txtUserName').val()
+        const password = $('#password').val()
+        if (username == '' || password == '') return
+        $('#play_game').modal('hide')
+        document.getElementById('form1').submit()
+    }
+
+    const toggleShowPassword = () => {
+        const inputType = $('#password').prop('type')
+        $('#password').get(0).type = inputType == 'password' ?
+            'text' : 'password'
+    }
 
     var swiper2 = new Swiper('.swiper-container-2', {
         slidesPerView: 'auto',

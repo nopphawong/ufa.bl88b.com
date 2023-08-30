@@ -13,13 +13,13 @@ $formatter = new CustomFormatter();
         <div class="headmain">
             <table width="100%">
                 <tr>
-                    <!-- <td style="width: 15%;text-align: center; padding-left: 15px;  ">
+                    <td style="width: 15%;text-align: center; padding-left: 15px;  ">
                         <img src="<?= base_url() ?>assets/images/logo.png" width="50px">
                     </td>
                     <td style="width: 50%;text-align: left; font-size: 18px;">
                         <i class="fas fa-user" style="font-size: 16px;color: #fad275;"></i> <?= session()->data->name ?><br>
                         <img src="<?= base_url() ?>assets/fonts/kbank.svg" width="17px"> <span><?= $formatter->bank_ac_no_format(session()->data->bankno) ?></span>
-                    </td> -->
+                    </td>
                     <td style="width: 15%;text-align: right; ">
                         <table align="right">
                             <tr>
@@ -39,7 +39,7 @@ $formatter = new CustomFormatter();
         </div>
         <div class="containmoney">
             <table width="100%">
-                <tr>
+                <!-- <tr>
                     <td style="width: 15%;text-align: center; padding-left: 15px;  ">
                         <img src="<?= base_url() ?>assets/images/logo.png" width="50px">
                     </td>
@@ -47,8 +47,8 @@ $formatter = new CustomFormatter();
                         <i class="fas fa-user" style="font-size: 16px;color: #fad275;"></i> <?= session()->data->name ?><br>
                         <img src="<?= base_url() ?>assets/fonts/kbank.svg" width="17px"> <span><?= $formatter->bank_ac_no_format(session()->data->bankno) ?></span>
                     </td>
-                </tr>
-                <!-- <tr>
+                </tr> -->
+                <tr>
                     <td width="50%" style="padding-left: 20px;">
                         <a href="<?= site_url('/') ?>">
                             <i style="cursor: pointer;" class="fal fa-wallet"></i>
@@ -61,13 +61,13 @@ $formatter = new CustomFormatter();
                             <?= number_to_currency(session()->webbalance, 'THB', 'th', 2); ?>
                         </span>
                     </td>
-                </tr> -->
+                </tr>
             </table>
             <hr style="margin: 5px; border-top:1px solid #4a506d;">
             <!-- <div style="padding-left: 20px;margin-top: 10px; margin-bottom: 15px;">
                 <i class="fad fa-gift" style="color:#fad275;"></i> โปรโมชั่น : ไม่รับโบนัส
-            </div>
-            <table width="100%">
+            </div> -->
+            <!-- <table width="100%">
                 <tr>
                     <td width="50%" style="text-align: center;">
                         <button class="btnfriend mcolor" onclick="location.href='<?= site_url('affiliate') ?>'"><i class="fal fa-users-medical"></i>
@@ -113,6 +113,45 @@ $formatter = new CustomFormatter();
     <br>
     <strong style="color: white;">
         <?= lang('Lang.dialog.copied') ?> </strong>
+</div>
+
+<div class="modal" id="play_game" role="dialog">
+    <div class="modal-dialog" role="document" style="top: 22vh;">
+        <div class="modal-content contentmain" style="background: #111111f2;box-shadow: 0 0 20px 0 #51411970;">
+            <form action="#" method="post" id="form1" enctype="multipart/form-data" target="_blank">
+                <div class="containinlogin">
+                    <div style="text-align: center;margin-top: 10px;">
+                        <h4 class="textlogin">เข้าสู่หน้าเกมส์</h4>
+                    </div>
+                    <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="btnSignIn">
+                    <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+                    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="">
+                    <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="">
+                    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="">
+                    <div style="margin-top: 10px;">
+                        <label for="exampleInputEmail1">ชื่อผู้ใช้</label>
+                        <div class="iconlogin">
+                            <i class="fal fa-user" style="font-size: 20px;"></i>
+                        </div>
+                        <input type="text" class="form-control loginform01" name="txtUserName" id="txtUserName" value="<?= session()->data->webuser ?>" readonly>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <label for="exampleInputEmail1">รหัสผ่าน</label>
+                        <div class="iconlogin">
+                            <i class="fal fa-lock" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="iconlogin2" onclick="toggleShowPassword()">
+                            <i class="fal fa-eye" style="font-size: 20px;"></i>
+                        </div>
+                        <input type="password" class="form-control loginform02" name="password" id="password" value="<?= session()->data->webpass ?>">
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <button type="button" id="btnlogin" onclick="submitPlayGames()" class="mcolor colorbtn01">ยืนยัน</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -213,7 +252,23 @@ $formatter = new CustomFormatter();
             $('#containbacktohome').show()
         }
     }
-</script>
+
+    $(document).ready(function() {
+        $('.copybtn').click(function(event) {
+            var $tempElement = $('<input>')
+            $('body').append($tempElement)
+            $tempElement.val($(this).closest('.copybtn').find('span').text()).select()
+            document.execCommand('Copy')
+            $tempElement.remove()
+        })
+    })
+
+    function myAlertTop() {
+        $('.myAlert-top').show()
+        setTimeout(function() {
+            $('.myAlert-top').hide()
+        }, 2000)
+    }
 </script>
 
 <?= $footer ?>

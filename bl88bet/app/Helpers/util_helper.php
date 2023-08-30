@@ -32,6 +32,7 @@ function transformAuthData($data): object
         'bankno' => $bank[1],
         'token' => $data->token,
     ];
+
     $result = (object) array_merge(
         (array) $newData,
         (array) $data->weblists[$index]

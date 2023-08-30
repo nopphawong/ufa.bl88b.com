@@ -79,12 +79,12 @@
                                 msg,
                                 data
                             } = JSON.parse(response)
+
                             if (!status) {
                                 swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
                             } else {
                                 swalFlashAlert(msg)
                                 setTimeout(function() {
-                                    
                                     window.location = './'
                                 }, 1000)
                             }
@@ -94,6 +94,7 @@
                         }
                     },
                     error: function(err) {
+                        spinner('hide')
                         console.log(err);
                         swalError('<?= lang('Lang.dialog.confirm_btn') ?>', '<?= lang('Lang.error.something_went_wrong', ['Login 92']) ?>')
                     }
