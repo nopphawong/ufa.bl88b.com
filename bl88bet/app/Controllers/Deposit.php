@@ -33,8 +33,6 @@ class Deposit extends Home
                 'tobankid' => $this->request->getVar('bankid'),
                 'tobankno' => $this->request->getVar('bankno'),
             ];
-            print_r($body);
-            exit;
             $service = new APIService();
             $response = $service->serverService('m_ideposit', POST, $body);
             $result = json_decode($response);

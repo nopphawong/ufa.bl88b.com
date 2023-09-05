@@ -96,7 +96,7 @@
                                 msg
                             } = JSON.parse(response)
                             if (status === true) {
-                                // swalFlashAlert(msg)
+                                swalFlashAlert(msg)
                                 setTimeout(function() {
                                     $.ajax({
                                         url: '<?= base_url('/logout') ?>',

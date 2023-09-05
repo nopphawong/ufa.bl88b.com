@@ -17,7 +17,7 @@ $formatter = new CustomFormatter();
 <div class="heightmobile"></div>
 
 
-<a href="https://lin.ee/Pmvz7pl" class="tip_trigger">
+<a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="tip_trigger">
     <div class="linebtn"><img src="<?= base_url() ?>assets/fonts/chat2.svg" style="width: 70px;"></div>
 </a>
 

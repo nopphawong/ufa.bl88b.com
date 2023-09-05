@@ -158,6 +158,8 @@ return [
         'username' => 'ยูสเซอร์:',
         'phone_number' => 'เบอร์โทร',
         'password' => 'รหัสผ่าน:',
+        'web_user' => 'เว็บยูสเซอร์:',
+        'web_password' => 'รหัสผ่าน:',
         'line_id' => 'ไอดีไลน์',
         'register_on' => 'สมัครสมาชิกเมื่อ',
         'last_login' => 'เข้าสู่ระบบล่าสุดเมื่อ',

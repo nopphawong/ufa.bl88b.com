@@ -11,12 +11,16 @@ $formatter = new CustomFormatter();
 
         <!-- ส่วนหัว /ข้อมูลส่วนตัว----------------------------------------------- -->
         <div class="headmain">
+            <div class="text-center">
+            <img class="imganimationlogin" style="margin:1em auto;" src="<?= base_url() ?>assets/images/ufa_odin_1.png">
+            </div>
+     
             <table width="100%">
                 <tr>
-                    <td style="width: 15%;text-align: center; padding-left: 15px;  ">
+                    <!-- <td style="width: 15%;text-align: center; padding-left: 15px;  ">
                         <img src="<?= base_url() ?>assets/images/logo.png" width="50px">
-                    </td>
-                    <td style="width: 50%;text-align: left; font-size: 18px;">
+                    </td> -->
+                    <td style="width: 50%;text-align: left; font-size: 18px;padding-left: 15px;">
                         <i class="fas fa-user" style="font-size: 16px;color: #fad275;"></i> <?= session()->data->name ?><br>
                         <img src="<?= base_url() ?>assets/fonts/kbank.svg" width="17px"> <span><?= $formatter->bank_ac_no_format(session()->data->bankno) ?></span>
                     </td>
@@ -104,7 +108,7 @@ $formatter = new CustomFormatter();
 <div class="heightmobile"></div>
 
 
-<a href="https://lin.ee/Pmvz7pl" class="tip_trigger">
+<a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="tip_trigger">
     <div class="linebtn"><img src="<?= base_url() ?>assets/fonts/chat2.svg" style="width: 70px;"></div>
 </a>
 

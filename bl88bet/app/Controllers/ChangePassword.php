@@ -13,6 +13,7 @@ class ChangePassword extends Home
     {
         if ($this->request->isAJAX()) {
             $body = [
+                'web' => session()->data->web,
                 'user' => session()->data->userid,
                 'token' => session()->data->token,
                 'oldpass' => $this->request->getVar('current_password'),

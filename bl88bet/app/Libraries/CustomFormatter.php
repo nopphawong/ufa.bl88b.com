@@ -51,6 +51,14 @@ class CustomFormatter
         return lang('Lang.bank_list.' . strtolower($input));
     }
 
+     /**
+     * Bank icon.
+     */
+    public static function bank_icon_format($input)
+    {
+        return strtolower($input);
+    }
+
     /**
      * Transaction bank.
      */

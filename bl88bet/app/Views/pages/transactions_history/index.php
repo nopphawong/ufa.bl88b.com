@@ -47,7 +47,7 @@ $locale = $language->getLocale();
                                                 <table>
                                                     <?php if ($item->type == 'ฝาก') : ?>
                                                         <tr>
-                                                            <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/fonts/<?= $formatter->transactionBankIcon($item->frombank) ?>.svg"></td>
+                                                            <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/images/bank/<?= $formatter->transactionBankIcon($item->frombank) ?>.svg"></td>
                                                             <td style="text-align: left; line-height: 20px;">
                                                                 <span class="spanofbankhis"><?= lang('Lang.transactions_history.bank_name', [$formatter->transactionBank($item->frombank)]) ?></span>
                                                                 <br>
@@ -57,7 +57,7 @@ $locale = $language->getLocale();
                                                         </tr>
                                                     <?php else : ?>
                                                         <tr>
-                                                            <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/fonts/<?= $formatter->transactionBankIcon($item->tobank) ?>.svg"></td>
+                                                            <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/images/bank/<?= $formatter->transactionBankIcon($item->tobank) ?>.svg"></td>
                                                             <td style="text-align: left; line-height: 20px;">
                                                                 <span class="spanofbankhis"><?= lang('Lang.transactions_history.bank_name', [$formatter->transactionBank($item->tobank)]) ?></span>
                                                                 <br>

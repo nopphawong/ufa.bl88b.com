@@ -44,8 +44,7 @@ class Forgot extends BaseController
                 'user' => $this->request->getVar('forgot_user'),
                 'otpref' => $this->request->getVar('otpref'),
                 'otpcode' => $this->request->getVar('forgot_otp'),
-                'pass' => $this->request->getVar('forgot_password')
-
+                'pass' => $this->request->getVar('forgot_password'),
             ];
             $service = new APIService();
             $response = $service->serverService('m_forgetpass', POST, $body);

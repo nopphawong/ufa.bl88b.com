@@ -90,13 +90,16 @@ $formatter = new CustomFormatter();
     <div class="swiper-container-2">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="<?= base_url() ?>assets/images/6.jpg?v=1">
+                <img src="<?= base_url() ?>assets/images/promotions/01.png">
             </div>
             <div class="swiper-slide">
-                <img src="<?= base_url() ?>assets/images/5.jpg">
+                <img src="<?= base_url() ?>assets/images/promotions/02.png">
             </div>
             <div class="swiper-slide">
-                <img src="<?= base_url() ?>assets/images/6.jpg?v=1">
+                <img src="<?= base_url() ?>assets/images/promotions/03.png">
+            </div>
+            <div class="swiper-slide">
+                <img src="<?= base_url() ?>assets/images/promotions/04.png">
             </div>
         </div>
         <!-- Add Pagination -->

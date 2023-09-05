@@ -158,6 +158,8 @@ return [
         'username' => 'User:',
         'phone_number' => 'Telephone no.',
         'password' => 'Password:',
+        'web_user' => 'Web User:',
+        'web_password' => 'Password:',
         'line_id' => 'Line ID',
         'register_on' => 'Register on',
         'last_login' => 'Last login',

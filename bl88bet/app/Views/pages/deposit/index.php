@@ -13,21 +13,6 @@ $formatter = new CustomFormatter();
 <div id="deposit" class="tabcontent">
     <div class="headerprocess"><i class="fal fa-plus-circle"></i> <?= lang('Lang.deposit.deposit') ?></div>
     <div class="accordion-div">
-        <form action="#" method="post" id="deposit_form" enctype="multipart/form-data">
-            <div class="tablewd01" style=" margin: 10px auto;">
-                <div style="padding: 8px 20px;text-align:left;">
-                    <div class="form-group">
-                        <span style="font-size: 15px;">
-                            <?= lang('Lang.deposit.deposit_amount') ?>
-                        </span>
-                        <input type="text" name="deposit_amount" class="form-control loginform01 number" placeholder="฿ 0.00" style="padding: 10px; margin-top: 10px;">
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: -10px; margin-bottom: 15px; padding:0px 30px;">
-                <button class="mcolor colorbtn01"><i class="fal fa-hand-holding-usd"></i> <?= lang('Lang.deposit.confirm') ?></button>
-            </div>
-        </form>
         <div class="pdingaccord">
             <button class="accordion"><img src="<?= base_url() ?>assets/fonts/bank.svg" height="50px"> &nbsp;
                 ธนาคาร
@@ -55,6 +40,21 @@ $formatter = new CustomFormatter();
                 </div>
             </div>
         </div>
+        <form action="#" method="post" id="deposit_form" enctype="multipart/form-data">
+            <div class="tablewd01" style=" margin: 10px auto;">
+                <div style="padding: 8px 20px;text-align:left;">
+                    <div class="form-group">
+                        <span style="font-size: 15px;">
+                            <?= lang('Lang.deposit.deposit_amount') ?>
+                        </span>
+                        <input type="text" name="deposit_amount" class="form-control loginform01 number" placeholder="฿ 0.00" style="padding: 10px; margin-top: 10px;">
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: -10px; margin-bottom: 15px; padding:0px 30px;">
+                <button class="mcolor colorbtn01"><i class="fal fa-hand-holding-usd"></i> <?= lang('Lang.deposit.confirm') ?></button>
+            </div>
+        </form>
         <!-- <div class="pdingaccord">
             <button class="accordion" style="font-size: 20px;"><img src="<?= base_url() ?>assets/images/truewallet.png" height="30px">
                 &nbsp;<span style="color: #ed1c24;">true</span><span style="color: #f38020">money</span><span style="color: #fff"> wallet</span></button>
@@ -140,11 +140,18 @@ $formatter = new CustomFormatter();
                                 data
                             } = JSON.parse(response)
                             if (!status) {
-                                swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
+                                if(msg == 'Waiting'){
+                                    swalFlashAlert('มีรายการรอดำเนินการอยู่', 'warning')
+                                    setTimeout(function() {
+                                    window.location = '/history'
+                                }, 1000)
+                                }else {
+                                    swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
+                                }
                             } else {
                                 swalFlashAlert(msg)
                                 setTimeout(function() {
-                                    window.location = '/transactions-history'
+                                    window.location = '/history'
                                 }, 1000)
                             }
                         } catch (err) {

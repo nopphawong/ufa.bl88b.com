@@ -19,8 +19,6 @@ class Withdraw extends Home
                 'webuser' => session()->data->webuser,
                 'amount' => number_format($this->request->getVar('withdraw_amount'), 2),
             ];
-            print_r($body);
-            exit();
             $service = new APIService();
             $response = $service->serverService('m_iwithdraw', POST, $body);
             $result = json_decode($response);

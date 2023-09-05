@@ -72,6 +72,9 @@
                             <td class="tdbtnregister">
                                 <button type="submit" id="btn-step1" class="btnnextregister mcolor">Request OTP</button>
                             </td>
+                            <!-- <td class="tdbtnregister">
+                                <button type="buttton" onclick="stepOneToTwo('0840476456', 'ASDFGH')" id="btn-step1" class="btnnextregister mcolor">Request OTP</button>
+                            </td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -109,6 +112,11 @@
             <div class="btnofregister">
                 <table style="width: 100%">
                     <tbody>
+                        <tr>
+                            <td colspan="2" style="padding: 0 10px;padding-bottom: 15px;">
+                                <a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="btnbackregister bkcolor" style="display: block;text-align: center;text-decoration: none;color: white;">ติดต่อเจ้าหน้าที่</a>
+                            </td>
+                        </tr>
                         <tr>
                             <td class="tdbtnregister">
                                 <button type="button" onclick="backToStep1()" class="btnbackregister bkcolor">ย้อนกลับ</button>

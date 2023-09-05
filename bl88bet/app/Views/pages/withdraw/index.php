@@ -105,26 +105,25 @@ $formatter = new CustomFormatter()
                     },
                     success: function(response) {
                         spinner('hide')
-                        console.log(response);
-                        // try {
-                        //     const {
-                        //         status,
-                        //         msg,
-                        //         deposit_id
-                        //     } = JSON.parse(response)
-                        //     if (!status) {
-                        //         swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
-                        //     } else {
-                        //         swalFlashAlert(msg)
-                        //         setTimeout(function() {
-                        //             window.location = '/history'
-                        //         }, 1000)
-                        //     }
-                        // } catch (err) {
-                        //     toastr.error(err, '', {
-                        //         timeOut: 5000
-                        //     })
-                        // }
+                        try {
+                            const {
+                                status,
+                                msg,
+                                deposit_id
+                            } = JSON.parse(response)
+                            if (!status) {
+                                swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
+                            } else {
+                                swalFlashAlert(msg)
+                                setTimeout(function() {
+                                    window.location = '/history'
+                                }, 1000)
+                            }
+                        } catch (err) {
+                            toastr.error(err, '', {
+                                timeOut: 5000
+                            })
+                        }
                     },
                     error: function(err) {
                         console.log(err);
