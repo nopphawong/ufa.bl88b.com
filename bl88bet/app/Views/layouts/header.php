@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title><?= esc($title) ?></title>
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico?v=1">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" crossorigin="anonymous">
@@ -40,7 +41,7 @@
 
 <!-- <body class="d-flex flex-column h-100" oncontextmenu="return false"> -->
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100" >
 
     <div id="loader-area">
         <div id="custom-loader">
