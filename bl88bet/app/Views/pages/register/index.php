@@ -10,23 +10,23 @@
         </div>
     </div>
     <div style="text-align: center;margin-top: 10px;">
-        <h4 class="textlogin">สมัครสมาชิก</h4>
+        <h4 class="textlogin"><?= lang('Lang.register.register') ?></h4>
     </div>
     <div id="hidefinish" style="margin-top: 30px;">
         <table style="width: 100%;text-align: center;">
             <tbody>
                 <tr>
                     <td class="tdstepregister headstep1 active">
-                        <b>1</b><br><span>โทรศัพท์</span>
+                        <b>1</b><br><span><?= lang('Lang.register.telephone') ?></span>
                     </td>
                     <td class="tdstepregister headstep2">
-                        <b>2</b><br><span>ตั้งรหัสผ่าน</span>
+                        <b>2</b><br><span><?= lang('Lang.register.set_password') ?></span>
                     </td>
                     <td class="tdstepregister headstep3">
-                        <b>3</b><br><span>บัญชีธนาคาร</span>
+                        <b>3</b><br><span><?= lang('Lang.register.bank_account') ?></span>
                     </td>
                     <td class="tdstepregister headstep4">
-                        <b style="padding: 0 5px;"><i class="fal fa-check"></i></b><br><span>สำเร็จ</span>
+                        <b style="padding: 0 5px;"><i class="fal fa-check"></i></b><br><span><?= lang('Lang.register.succeed') ?></span>
                     </td>
                 </tr>
             </tbody>
@@ -40,21 +40,21 @@
     <div class="stepre01 slideto containinlogin">
         <form action="#" method="post" id="validate_phone" enctype="multipart/form-data" autocomplete="off">
             <div style="margin-top: 30px;">
-                <label for="username">เบอร์มือถือ</label>
+                <label for="username"><?= lang('Lang.register.mobile_number') ?></label>
                 <div class="iconlogin">
                     <i class="fal fa-user" style="font-size: 20px;"></i>
                 </div>
-                <input type="text" maxlength="10" class="form-control loginform01" name="username" id="username" placeholder="กรอกเบอร์มือถือ">
+                <input type="text" maxlength="10" class="form-control loginform01" name="username" id="username" placeholder="<?= lang('Lang.register.mobile_number') ?>">
             </div>
             <div class="btnofregister">
                 <table style="width: 100%">
                     <tbody>
                         <tr>
                             <td class="tdbtnregister">
-                                <button type="button" onclick="location.href='<?= site_url('login') ?>'" class="btnbackregister bkcolor">ย้อนกลับ</button>
+                                <button type="button" onclick="location.href='<?= site_url('login') ?>'" class="btnbackregister bkcolor"><?= lang('Lang.register.back') ?></button>
                             </td>
                             <td class="tdbtnregister">
-                                <button type="submit" id="btn-step1" class="btnnextregister mcolor">ถัดไป </button>
+                                <button type="submit" id="btn-step1" class="btnnextregister mcolor"><?= lang('Lang.register.next') ?></button>
                             </td>
                         </tr>
                     </tbody>
@@ -70,28 +70,28 @@
     <div class="stepre02 slideto containinlogin" style="display: none;">
         <form action="#" method="post" id="validate_password" enctype="multipart/form-data" autocomplete="off">
             <div style="margin-top: 30px;">
-                <label for="password">รหัสผ่าน</label>
+                <label for="password"><?= lang('Lang.register.password') ?></label>
                 <div class="iconlogin">
                     <i class="fal fa-lock" style="font-size: 20px;"></i>
                 </div>
-                <input type="password" maxlength="10" class="form-control loginform01" name="password" id="password" aria-describedby="emailHelp" placeholder="รหัสผ่าน">
+                <input type="password" maxlength="10" class="form-control loginform01" name="password" id="password" aria-describedby="emailHelp" placeholder="<?= lang('Lang.register.password') ?>">
             </div>
             <div style="margin-top: 10px;">
-                <label for="confirm_password">ยืนยันรหัสผ่าน</label>
+                <label for="confirm_password"><?= lang('Lang.register.confirm_password') ?></label>
                 <div class="iconlogin">
                     <i class="fal fa-lock" style="font-size: 20px;"></i>
                 </div>
-                <input type="password" maxlength="10" class="form-control loginform01" name="confirm_password" id="confirm_password" aria-describedby="emailHelp" placeholder="ยืนยันรหัสผ่าน">
+                <input type="password" maxlength="10" class="form-control loginform01" name="confirm_password" id="confirm_password" aria-describedby="emailHelp" placeholder="<?= lang('Lang.register.confirm_password') ?>">
             </div>
             <div class="btnofregister">
                 <table style="width: 100%">
                     <tbody>
                         <tr>
                             <td class="tdbtnregister">
-                                <button type="button" id="btn-back1" class="btnbackregister bkcolor">ย้อนกลับ</button>
+                                <button type="button" id="btn-back1" class="btnbackregister bkcolor"><?= lang('Lang.register.back') ?></button>
                             </td>
                             <td class="tdbtnregister">
-                                <button type="submit" id="btn-step2" class="btnnextregister mcolor">ถัดไป</button>
+                                <button type="submit" id="btn-step2" class="btnnextregister mcolor"><?= lang('Lang.register.next') ?></button>
                             </td>
                         </tr>
                     </tbody>
@@ -107,35 +107,35 @@
     <div class="stepre03 slideto containinlogin" style="display: none;">
         <form action="#" method="post" id="verify_bank" enctype="multipart/form-data" autocomplete="off">
             <div style="margin-top: 30px;">
-                <label for="exampleInputEmail1">ธนาคาร</label>
+                <label for="exampleInputEmail1"><?= lang('Lang.register.bank') ?></label>
                 <div class="iconlogin">
                     <i class="fal fa-university font-size: 20px;"></i>
                 </div>
-                <input type="text" readonly class="form-control loginform01 open_select_bank" name="financial_name" style="cursor: pointer;" placeholder="เลือกธนาคาร">
+                <input type="text" readonly class="form-control loginform01 open_select_bank" name="financial_name" style="cursor: pointer;" placeholder="<?= lang('Lang.register.select_bank') ?>">
                 <input type="text" name="financial_id" id="financial_id" value="" hidden="">
 
             </div>
             <div style="margin-top: 10px;">
-                <label for="account_number">หมายเลขบัญชี</label>
+                <label for="account_number"><?= lang('Lang.register.bank_account_no') ?></label>
                 <div style="display: flex;column-gap: 8px;">
                     <div style="flex: 1;">
                         <div class="iconlogin">
                             <i class="fal fa-sort-numeric-up-alt" style="font-size: 20px;"></i>
                         </div>
-                        <input type="text" maxlength="15" class="form-control loginform01" name="account_number" id="account_number" placeholder="กรอกหมายเลขบัญชี">
+                        <input type="text" maxlength="15" class="form-control loginform01" name="account_number" id="account_number" placeholder="<?= lang('Lang.register.bank_account_no_note') ?>">
                     </div>
-                    <button type="submit" id="btn-verify" class="btnnextregister mcolor" style="width: 30%;height: 38px;padding: 0;">ตรวจสอบ</button>
+                    <button type="submit" id="btn-verify" class="btnnextregister mcolor" style="width: 30%;height: 38px;padding: 0;"><?= lang('Lang.register.verrify') ?></button>
                 </div>
 
             </div>
         </form>
         <form action="#" method="post" id="register_submit" enctype="multipart/form-data" autocomplete="off">
             <div style="margin-top: 10px;">
-                <label for="exampleInputEmail1">ชื่อบัญชี</label>
+                <label for="exampleInputEmail1"><?= lang('Lang.register.bank_account_name') ?></label>
                 <div class="iconlogin">
                     <i class="fal fa-user" style="font-size: 20px;"></i>
                 </div>
-                <input type="text" class="form-control loginform01" name="account_name" id="account_name" placeholder="ชื่อบัญชี" readonly>
+                <input type="text" class="form-control loginform01" name="account_name" id="account_name" placeholder="<?= lang('Lang.register.bank_account_name') ?>" readonly>
             </div>
 
             <div class="btnofregister">
@@ -143,10 +143,10 @@
                     <tbody>
                         <tr>
                             <td class="tdbtnregister">
-                                <button type="button" id="btn-back2" class="btnbackregister bkcolor">ย้อนกลับ</button>
+                                <button type="button" id="btn-back2" class="btnbackregister bkcolor"><?= lang('Lang.register.back') ?></button>
                             </td>
                             <td class="tdbtnregister">
-                                <button type="submit" id="btn-step3" class="btnnextregister mcolor">ยืนยัน</button>
+                                <button type="submit" id="btn-step3" class="btnnextregister mcolor"><?= lang('Lang.register.confirm') ?></button>
                             </td>
                         </tr>
                     </tbody>
@@ -163,8 +163,8 @@
         <div style="text-align: center;margin-top: 20px;
                margin-bottom: 10px;"><i class="far fa-check checkfinish"></i></div>
         <div class="finishregister">
-            <span>สมัครสมาชิกสำเร็จ</span> <br>
-            กำลังพาท่านเข้าสู่ระบบ กรุณารอสักครู่ <i class="fad fa-spinner-third fa-spin "></i>
+            <span><?= lang('Lang.register.register_is_succeed') ?></span> <br>
+            <?= lang('Lang.register.go_to_login') ?> <i class="fad fa-spinner-third fa-spin "></i>
         </div>
     </div>
     <!-- ---------------------END step4--------------------- -->
@@ -183,7 +183,7 @@
                 </tr>
                 <tr>
                     <td><img class="selectbank" name="กรุงไทย (KTB)" alt="KTB" src="<?= base_url() ?>assets/images/bank/ktb.svg"><br> กรุงไทย (KTB)</td>
-                    <td><img class="selectbank" name="ทหารไทย (TMB)" alt="TMB" src="<?= base_url() ?>assets/images/bank/tmb.svg"><br> ทหารไทย (TMB)</td>
+                    <td><img class="selectbank" name="ทหารไทยธนชาต (TTB)" alt="TTB" src="<?= base_url() ?>assets/images/bank/ttb.svg"><br> ทหารไทยธนชาต (TTB)</td>
                 </tr>
                 <tr>
                     <td><img class="selectbank" name="ไทยพาณิชย์ (SCB)" alt="SCB" src="<?= base_url() ?>assets/images/bank/scb.svg"><br> ไทยพาณิชย์ (SCB)</td>
@@ -200,11 +200,10 @@
                     <td><img class="selectbank" name="ธกส. (BAAC)" alt="BAAC" src="<?= base_url() ?>assets/images/bank/baac.svg"><br> ธกส. (BAAC)</td>
                 </tr>
                 <tr>
-                    <td><img class="selectbank" name="ธนชาต (TBANK)" alt="TBANK" src="<?= base_url() ?>assets/images/bank/tnc.svg"><br> ธนชาต (TBANK)</td>
                     <td><img class="selectbank" name="ทิสโก้ (TISCO)" alt="TISCO" src="<?= base_url() ?>assets/images/bank/tisco.svg"><br> ทิสโก้ (TISCO)</td>
+                    <td><img class="selectbank" name="เกียรตินาคิน (KKP)" alt="KKP" src="<?= base_url() ?>assets/images/bank/kkp.svg"><br> เกียรตินาคิน (KKP)</td>
                 </tr>
                 <tr>
-                    <td><img class="selectbank" name="เกียรตินาคิน (KKP)" alt="KKP" src="<?= base_url() ?>assets/images/bank/kkp.svg"><br> เกียรตินาคิน (KKP)</td>
                     <td><img class="selectbank" name="แลนด์แอนด์เฮ้าส์ (LHFG)" alt="LHFG" src="<?= base_url() ?>assets/images/bank/lhfg.svg"><br> แลนด์แอนด์เฮ้าส์ (LHFG)</td>
                 </tr>
             </tbody>

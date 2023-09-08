@@ -38,13 +38,13 @@
             <tbody>
                 <tr>
                     <td class="tdstepregister headstep1 active">
-                        <b>1</b><br><span>โทรศัพท์</span>
+                        <b>1</b><br><span><?= lang('Lang.forgot.telephone') ?></span>
                     </td>
                     <td class="tdstepregister headstep2">
-                        <b>2</b><br><span>ตั้งรหัสผ่านใหม่</span>
+                        <b>2</b><br><span><?= lang('Lang.forgot.set_password') ?></span>
                     </td>
                     <td class="tdstepregister headstep3">
-                        <b style="padding: 0 5px;"><i class="fal fa-check"></i></b><br><span>สำเร็จ</span>
+                        <b style="padding: 0 5px;"><i class="fal fa-check"></i></b><br><span><?= lang('Lang.forgot.succeed') ?></span>
                     </td>
                 </tr>
             </tbody>
@@ -56,18 +56,18 @@
     <div class="stepre01 slideto containinlogin">
         <form action="#" method="post" id="validate_phone" enctype="multipart/form-data" autocomplete="off">
             <div style="margin-top: 30px;">
-                <label for="forgot_user">เบอร์มือถือ</label>
+                <label for="forgot_user"><?= lang('Lang.register.mobile_number') ?></label>
                 <div class="iconlogin">
                     <i class="fal fa-user" style="font-size: 20px;"></i>
                 </div>
-                <input type="text" maxlength="10" class="form-control loginform01" name="forgot_user" id="forgot_user" placeholder="กรอกเบอร์มือถือ">
+                <input type="text" maxlength="10" class="form-control loginform01" name="forgot_user" id="forgot_user" placeholder="<?= lang('Lang.register.mobile_number') ?>">
             </div>
             <div class="btnofregister">
                 <table style="width: 100%">
                     <tbody>
                         <tr>
                             <td class="tdbtnregister">
-                                <button type="button" onclick="location.href='<?= site_url('login') ?>'" class="btnbackregister bkcolor">ย้อนกลับ</button>
+                                <button type="button" onclick="location.href='<?= site_url('login') ?>'" class="btnbackregister bkcolor"><?= lang('Lang.forgot.back') ?></button>
                             </td>
                             <td class="tdbtnregister">
                                 <button type="submit" id="btn-step1" class="btnnextregister mcolor">Request OTP</button>
@@ -114,15 +114,15 @@
                     <tbody>
                         <tr>
                             <td colspan="2" style="padding: 0 10px;padding-bottom: 15px;">
-                                <a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="btnbackregister bkcolor" style="display: block;text-align: center;text-decoration: none;color: white;">ติดต่อเจ้าหน้าที่</a>
+                                <a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="btnbackregister bkcolor" style="display: block;text-align: center;text-decoration: none;color: white;"><?= lang('Lang.forgot.contact_us') ?></a>
                             </td>
                         </tr>
                         <tr>
                             <td class="tdbtnregister">
-                                <button type="button" onclick="backToStep1()" class="btnbackregister bkcolor">ย้อนกลับ</button>
+                                <button type="button" onclick="backToStep1()" class="btnbackregister bkcolor"><?= lang('Lang.forgot.back') ?></button>
                             </td>
                             <td class="tdbtnregister">
-                                <button type="submit" id="btn-step2" class="btnnextregister mcolor">ยืนยัน</button>
+                                <button type="submit" id="btn-step2" class="btnnextregister mcolor"><?= lang('Lang.forgot.confirm') ?></button>
                             </td>
                         </tr>
                     </tbody>
@@ -138,8 +138,8 @@
         <div style="text-align: center;margin-top: 20px;
                margin-bottom: 10px;"><i class="far fa-check checkfinish"></i></div>
         <div class="finishregister">
-            <span>เปลี่ยนรหัสผ่านใหม่สำเร็จ</span> <br>
-            กำลังพาท่านเข้าสู่ระบบ กรุณารอสักครู่ <i class="fad fa-spinner-third fa-spin "></i>
+            <span><?= lang('Lang.forgot.reset_password_is_succeed') ?></span> <br>
+            <?= lang('Lang.forgot.go_to_login') ?> <i class="fad fa-spinner-third fa-spin "></i>
         </div>
     </div>
     <!-- ---------------------END step3--------------------- -->

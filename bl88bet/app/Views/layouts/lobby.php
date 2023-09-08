@@ -125,7 +125,7 @@ $formatter = new CustomFormatter();
             <form action="#" method="post" id="form1" enctype="multipart/form-data" target="_blank">
                 <div class="containinlogin">
                     <div style="text-align: center;margin-top: 10px;">
-                        <h4 class="textlogin">เข้าสู่หน้าเกมส์</h4>
+                        <h4 class="textlogin"><?= lang('Lang.play_game.play_game') ?></h4>
                     </div>
                     <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="btnSignIn">
                     <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
@@ -133,14 +133,14 @@ $formatter = new CustomFormatter();
                     <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="">
                     <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="">
                     <div style="margin-top: 10px;">
-                        <label for="exampleInputEmail1">ชื่อผู้ใช้</label>
+                        <label for="exampleInputEmail1"><?= lang('Lang.play_game.username') ?></label>
                         <div class="iconlogin">
                             <i class="fal fa-user" style="font-size: 20px;"></i>
                         </div>
                         <input type="text" class="form-control loginform01" name="txtUserName" id="txtUserName" value="<?= session()->data->webuser ?>" readonly>
                     </div>
                     <div style="margin-top: 20px;">
-                        <label for="exampleInputEmail1">รหัสผ่าน</label>
+                        <label for="exampleInputEmail1"><?= lang('Lang.play_game.password') ?></label>
                         <div class="iconlogin">
                             <i class="fal fa-lock" style="font-size: 20px;"></i>
                         </div>
@@ -151,7 +151,7 @@ $formatter = new CustomFormatter();
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
-                    <button type="button" id="btnlogin" onclick="submitPlayGames()" class="mcolor colorbtn01">ยืนยัน</button>
+                    <button type="button" id="btnlogin" onclick="submitPlayGames()" class="mcolor colorbtn01"><?= lang('Lang.play_game.confirm') ?></button>
                 </div>
             </form>
         </div>

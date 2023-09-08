@@ -14,7 +14,7 @@ $locale = $language->getLocale();
 
 <!-- history section -->
 <div id="history" class="tabcontent">
-    <div class="headerprocess"><i class="fal fa-history"></i> ประวัติ</div>
+    <div class="headerprocess"><i class="fal fa-history"></i> <?= lang('Lang.history.history') ?></div>
     <div class="containprocess " style="margin-top: 10px;">
         <!-- <table style="width: 100%;">
             <thead style="text-align: center;">
@@ -33,7 +33,7 @@ $locale = $language->getLocale();
             </thead>
         </table> -->
         <div id="historyhis">
-            แสดงข้อมูล <span style="color: #aeb2ff;">ฝาก/ถอนเงิน</span> ย้อนหลัง
+        <?= lang('Lang.history.show') ?> <span style="color: #aeb2ff;"><?= lang('Lang.history.all') ?></span> <?= lang('Lang.history.ago') ?>
             <div id="all" class="containloophisdps">
                 <!-- Start Loop หน้าฝากเงิน -------------------------------------------------------------- -->
                 <?php if ($result->status == 1) : ?>
@@ -49,7 +49,7 @@ $locale = $language->getLocale();
                                                         <tr>
                                                             <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/images/bank/<?= $formatter->transactionBankIcon($item->frombank) ?>.svg"></td>
                                                             <td style="text-align: left; line-height: 20px;">
-                                                                <span class="spanofbankhis"><?= lang('Lang.transactions_history.bank_name', [$formatter->transactionBank($item->frombank)]) ?></span>
+                                                                <span class="spanofbankhis"><?= lang('Lang.history.bank_name', [$formatter->transactionBank($item->frombank)]) ?></span>
                                                                 <br>
                                                                 <span class="spanofbankhis"><?= $formatter->transactionBankAccount($item->frombank) ?></span>
 
@@ -59,7 +59,7 @@ $locale = $language->getLocale();
                                                         <tr>
                                                             <td style="padding-right: 5px;"> <img class="backlogohis" src="<?= base_url() ?>assets/images/bank/<?= $formatter->transactionBankIcon($item->tobank) ?>.svg"></td>
                                                             <td style="text-align: left; line-height: 20px;">
-                                                                <span class="spanofbankhis"><?= lang('Lang.transactions_history.bank_name', [$formatter->transactionBank($item->tobank)]) ?></span>
+                                                                <span class="spanofbankhis"><?= lang('Lang.history.bank_name', [$formatter->transactionBank($item->tobank)]) ?></span>
                                                                 <br>
                                                                 <span class="spanofbankhis"><?= $formatter->transactionBankAccount($item->tobank) ?></span>
 
@@ -81,7 +81,7 @@ $locale = $language->getLocale();
                         <?php endforeach; ?>
                     <?php else : ?>
                         <div id='all'>
-                            <div style="margin-top: 5rem;font-size: 24px;text-shadow: 3px 3px 10px #000, 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;"><?= lang('Lang.transactions_history.no_history') ?></div>
+                            <div style="margin-top: 5rem;font-size: 24px;text-shadow: 3px 3px 10px #000, 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;"><?= lang('Lang.history.no_history') ?></div>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>
@@ -218,7 +218,7 @@ $locale = $language->getLocale();
                             </div>`
                                 }
                             } else {
-                                content = `<div style="margin-top: 5rem;font-size: 24px;text-shadow: 3px 3px 10px #000, 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;"><?= lang('Lang.transactions_history.no_history') ?></div>`
+                                content = `<div style="margin-top: 5rem;font-size: 24px;text-shadow: 3px 3px 10px #000, 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;"><?= lang('Lang.history.no_history') ?></div>`
                             }
                             $(`#${segment}`).html(content);
                         }
@@ -337,13 +337,13 @@ $locale = $language->getLocale();
     function transactionType($type) {
         switch ($type) {
             case 'ฝาก':
-                return '<?= lang('Lang.transactions_history.deposit') ?>';
+                return '<?= lang('Lang.history.deposit') ?>';
             case 'ถอน':
-                return '<?= lang('Lang.transactions_history.withdraw') ?>';
+                return '<?= lang('Lang.history.withdraw') ?>';
             case 'เพิ่มโบนัส':
-                return '<?= lang('Lang.transactions_history.add_bonus') ?>';
+                return '<?= lang('Lang.history.add_bonus') ?>';
             default:
-                return '<?= lang('Lang.transactions_history.reduce_bonus') ?>';
+                return '<?= lang('Lang.history.reduce_bonus') ?>';
         }
     }
 
@@ -366,11 +366,11 @@ $locale = $language->getLocale();
     function transactionStatus(status) {
         switch (status) {
             case 'Y':
-                return '<?= lang('Lang.transactions_history.successful') ?>';
+                return '<?= lang('Lang.history.successful') ?>';
             case 'C':
-                return '<?= lang('Lang.transactions_history.cancel') ?>';
+                return '<?= lang('Lang.history.cancel') ?>';
             default:
-                return '<?= lang('Lang.transactions_history.pending') ?>';
+                return '<?= lang('Lang.history.pending') ?>';
         }
     }
 

@@ -142,11 +142,11 @@ class CustomFormatter
     {
         switch ($status) {
             case 'Y':
-                return lang('Lang.transactions_history.successful');
+                return lang('Lang.history.successful');
             case 'C':
-                return lang('Lang.transactions_history.cancel');
+                return lang('Lang.history.cancel');
             default:
-                return lang('Lang.transactions_history.pending');
+                return lang('Lang.history.pending');
         }
     }
 

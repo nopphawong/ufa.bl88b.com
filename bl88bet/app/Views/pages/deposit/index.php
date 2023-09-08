@@ -15,7 +15,7 @@ $formatter = new CustomFormatter();
     <div class="accordion-div">
         <div class="pdingaccord">
             <button class="accordion"><img src="<?= base_url() ?>assets/fonts/bank.svg" height="50px"> &nbsp;
-                ธนาคาร
+            <?= lang('Lang.deposit.bank') ?>
             </button>
             <div class="panel">
                 <div style="padding-top: 20px; padding-bottom: 20px;">
