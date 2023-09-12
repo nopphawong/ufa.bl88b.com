@@ -15,7 +15,7 @@ class Deposit extends Home
         $service = new APIService();
         $response = $service->serverService('m_ibankdeposit', POST, $body);
         $result = json_decode($response);
-        $this->viewData['result'] = $result;
+        $this->viewData['result'] = $result ? $result : [];
         return $this->cv->pageView('pages/deposit/index', $this->headerInfo, $this->viewData);
     }
 

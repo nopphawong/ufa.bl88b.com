@@ -14,10 +14,10 @@ $formatter = new CustomFormatter();
     <div class="headerprocess"><i class="fal fa-plus-circle"></i> <?= lang('Lang.deposit.deposit') ?></div>
     <div class="accordion-div">
         <div class="pdingaccord">
-            <button class="accordion"><img src="<?= base_url() ?>assets/fonts/bank.svg" height="50px"> &nbsp;
+            <!-- <button class="accordion"><img src="<?= base_url() ?>assets/fonts/bank.svg" height="50px"> &nbsp;
             <?= lang('Lang.deposit.bank') ?>
-            </button>
-            <div class="panel">
+            </button> -->
+            <div class="panel" style="max-height: 214px;">
                 <div style="padding-top: 20px; padding-bottom: 20px;">
                     <div align="center" class="tabletruewallet" style="display: block;"> <!-- When bank more than 1 then remove this -> style="display: block;" -->
                         <!-- <div style=" text-align: center; width: 100%; font-size: 13px; padding: 5px;">
@@ -28,14 +28,20 @@ $formatter = new CustomFormatter();
                         จีรพล มุสิกบุญเลิศ <br>
                         <button onclick="myAlertTop()" class="copybtn mcolor">คัดลอก<span hidden>859-2-59209-0</span></button>
                     </div> -->
-                        <div style="text-align: center; width: 100%; font-size: 13px; padding: 5px;">
-                            <img src="<?= base_url() ?>assets/fonts/kbank_1.svg" width="70px" style="margin-bottom: 5px;"><br>
-                            <?= $formatter->bank_name_format($result->data->tbankid) ?>
-                            <br>
-                            <?= $formatter->bank_ac_no_format($result->data->tbankno) ?><br>
-                            <?= $result->data->tbankname ?><br>
-                            <button onclick="myAlertTop()" class="copybtn mcolor">คัดลอก<span hidden><?= $result->data->tbankno ?></span></button>
+                        <?php if (!isset($result->data)): ?>
+                            <div style="text-align: center; width: 100%; font-size: 13px; padding: 5px;">
+                            <a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="copybtn mcolor" style="padding: 12px 16px;text-decoration: unset;color: #fff;"><?= lang('Lang.forgot.contact_us') ?></a>
                         </div>
+                        <?php else: ?>
+                            <div style="text-align: center; width: 100%; font-size: 13px; padding: 5px;">
+                                <img src="<?= base_url() ?>assets/fonts/kbank_1.svg" width="70px" style="margin-bottom: 5px;"><br>
+                                <?= $formatter->bank_name_format($result->data->tbankid) ?>
+                                <br>
+                                <?= $formatter->bank_ac_no_format($result->data->tbankno) ?><br>
+                                <?= $result->data->tbankname ?><br>
+                                <button onclick="myAlertTop()" class="copybtn mcolor">คัดลอก<span hidden><?= $result->data->tbankno ?></span></button>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -98,73 +104,74 @@ $formatter = new CustomFormatter();
 <script>
     $(function() {
         opentab('deposit')
-
-        $("#deposit_form").validate({
-            rules: {
-                deposit_amount: {
-                    required: true,
-                    min: 1,
-                    number: true,
-                    digits: true,
-                },
-            },
-            messages: {
-                deposit_amount: {
-                    required: '<?= lang('Lang.deposit.amount_is_required') ?>',
-                    min: '<?= lang('Lang.deposit.amount_is_min') ?>',
-                    number: '<?= lang('Lang.deposit.amount_is_digits') ?>',
-                    digits: '<?= lang('Lang.deposit.amount_is_digits') ?>',
-                },
-            },
-            submitHandler: function(form) {
-                const method = $(form).attr('method')
-                const formData = new FormData(form)
-                formData.set('bankid', '<?= $result->data->tbankid ?>')
-                formData.set('bankno', '<?= $result->data->tbankno ?>')
-                $.ajax({
-                    url: '<?= base_url('/deposit/submit') ?>',
-                    method,
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    beforeSend: function() {
-                        spinner('show')
+        <?php if(isset($result->data)) { ?>
+            $("#deposit_form").validate({
+                rules: {
+                    deposit_amount: {
+                        required: true,
+                        min: 1,
+                        number: true,
+                        digits: true,
                     },
-                    success: function(response) {
-                        spinner('hide')
-                        try {
-                            const {
-                                status,
-                                msg,
-                                data
-                            } = JSON.parse(response)
-                            if (!status) {
-                                if(msg == 'Waiting'){
-                                    swalFlashAlert('มีรายการรอดำเนินการอยู่', 'warning')
+                },
+                messages: {
+                    deposit_amount: {
+                        required: '<?= lang('Lang.deposit.amount_is_required') ?>',
+                        min: '<?= lang('Lang.deposit.amount_is_min') ?>',
+                        number: '<?= lang('Lang.deposit.amount_is_digits') ?>',
+                        digits: '<?= lang('Lang.deposit.amount_is_digits') ?>',
+                    },
+                },
+                submitHandler: function(form) {
+                    const method = $(form).attr('method')
+                    const formData = new FormData(form)
+                    formData.set('bankid', '<?= $result->data->tbankid ?>')
+                    formData.set('bankno', '<?= $result->data->tbankno ?>')
+                    $.ajax({
+                        url: '<?= base_url('/deposit/submit') ?>',
+                        method,
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        beforeSend: function() {
+                            spinner('show')
+                        },
+                        success: function(response) {
+                            spinner('hide')
+                            try {
+                                const {
+                                    status,
+                                    msg,
+                                    data
+                                } = JSON.parse(response)
+                                if (!status) {
+                                    if(msg == 'Waiting'){
+                                        swalFlashAlert('มีรายการรอดำเนินการอยู่', 'warning')
+                                        setTimeout(function() {
+                                        window.location = '/history'
+                                    }, 1000)
+                                    }else {
+                                        swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
+                                    }
+                                } else {
+                                    swalFlashAlert(msg)
                                     setTimeout(function() {
-                                    window.location = '/history'
-                                }, 1000)
-                                }else {
-                                    swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
+                                        window.location = '/history'
+                                    }, 1000)
                                 }
-                            } else {
-                                swalFlashAlert(msg)
-                                setTimeout(function() {
-                                    window.location = '/history'
-                                }, 1000)
+                            } catch (err) {
+                                console.log(err);
                             }
-                        } catch (err) {
+                        },
+                        error: function(err) {
                             console.log(err);
+                            swalError('<?= lang('Lang.dialog.confirm_btn') ?>', '<?= lang('Lang.error.something_went_wrong', ['Deposit 194']) ?>')
                         }
-                    },
-                    error: function(err) {
-                        console.log(err);
-                        swalError('<?= lang('Lang.dialog.confirm_btn') ?>', '<?= lang('Lang.error.something_went_wrong', ['Deposit 194']) ?>')
-                    }
-                })
-            },
-        })
+                    })
+                },
+            })
+        <?php } ?>
     })
 
     // Deposit -----------------------------------------------------
