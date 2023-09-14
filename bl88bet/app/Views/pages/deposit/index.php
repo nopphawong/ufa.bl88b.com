@@ -28,7 +28,7 @@ $formatter = new CustomFormatter();
                         จีรพล มุสิกบุญเลิศ <br>
                         <button onclick="myAlertTop()" class="copybtn mcolor">คัดลอก<span hidden>859-2-59209-0</span></button>
                     </div> -->
-                        <?php if (!isset($result->data)): ?>
+                        <?php if (!isset($result->data) || !isset($result->data->tbankid)): ?>
                             <div style="text-align: center; width: 100%; font-size: 13px; padding: 5px;">
                             <a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="copybtn mcolor" style="padding: 12px 16px;text-decoration: unset;color: #fff;"><?= lang('Lang.forgot.contact_us') ?></a>
                         </div>
