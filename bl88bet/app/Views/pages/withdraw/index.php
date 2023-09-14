@@ -67,7 +67,7 @@ $formatter = new CustomFormatter()
         $.validator.addMethod(
             'check_credit',
             function(value, element) {
-                return Number(value) < Number('<?= session()->webbalance ?>')
+                return Number(value) <= Number('<?= session()->webbalance ?>')
             }
         )
 
