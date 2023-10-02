@@ -27,6 +27,11 @@ $formatter = new CustomFormatter();
                     <td style="width: 15%;text-align: right; ">
                         <table align="right">
                             <tr>
+                                <td style="padding-right: 2px;">
+                                <a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="tip_trigger">
+                                    <div><img src="<?= base_url() ?>assets/images/line_contact.png" style="width: 36px;"></div>
+                                </a>
+                                </td>
                                 <td class="righttopmain">
                                     <span class="bglangbtn">
                                         <img onclick="location.href='<?= site_url('language') ?>'" class="languagebtn" src="<?= base_url() ?>assets/fonts/translatearcha1682.svg">
@@ -119,7 +124,7 @@ $formatter = new CustomFormatter();
         <?= lang('Lang.dialog.copied') ?> </strong>
 </div>
 
-<div class="modal" id="play_game" role="dialog">
+<!-- <div class="modal" id="play_game" role="dialog">
     <div class="modal-dialog" role="document" style="top: 22vh;">
         <div class="modal-content contentmain" style="background: #111111f2;box-shadow: 0 0 20px 0 #51411970;">
             <form action="#" method="post" id="form1" enctype="multipart/form-data" target="_blank">
@@ -156,7 +161,7 @@ $formatter = new CustomFormatter();
             </form>
         </div>
     </div>
-</div>
+</div> -->
 
 <script>
     // NOTE: Refresh Credit

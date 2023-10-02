@@ -23,15 +23,17 @@ class Login extends BaseController
             ];
             $service = new APIService();
             $response = $service->serverService('m_login', POST, $credential);
-            $result = json_decode($response);
-            if ($result->status == 1) {
-                $data = transformAuthData($result->data);
-                $ses_data = [
-                    'data' => $data,
-                    'logged_in' => TRUE,
-                ];
-                $this->session->set($ses_data);
-            }
+            // print_r($response);
+            // exit;
+            // $result = json_decode($response);
+            // if ($result->status == 1) {
+            //     $data = transformAuthData($result->data);
+            //     $ses_data = [
+            //         'data' => $data,
+            //         'logged_in' => TRUE,
+            //     ];
+            //     $this->session->set($ses_data);
+            // }
             return $response;
         }
     }

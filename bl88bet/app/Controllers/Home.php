@@ -24,6 +24,40 @@ class Home extends BaseController
 
     public function __construct()
     {
+        // echo 'get';
+        // NOTE: Get Info.
+        $bodyInfo = [
+            'user' => session()->data->userid,
+            'token' => session()->data->token,
+        ];
+        $serviceInfo = new APIService();
+        $responseInfo = $serviceInfo->serverService('m_info', POST, $bodyInfo);
+        $resultInfo = json_decode($responseInfo);
+        if ($resultInfo->status == 1) {
+            $index = array_search(WEB_AGENT, array_column($resultInfo->data->weblists, 'webag'));
+            $bank = explode('-', $resultInfo->data->bank);
+            $newData = [
+                'userid' => $resultInfo->data->userid,
+                'name' => $resultInfo->data->name,
+                'tel' => $resultInfo->data->tel,
+                'email' => $resultInfo->data->email,
+                'lineid' => $resultInfo->data->lineid,
+                'bankid' => $bank[0],
+                'bankno' => $bank[1],
+                'token' => $resultInfo->data->token,
+            ];
+            $resultData = (object) array_merge(
+                (array) $newData,
+                (array) $resultInfo->data->weblists[$index]
+            );
+            unset($resultData->weblists);
+            $ses_data = [
+                'data' => $resultData,
+            ];
+            session()->set($ses_data);
+        }
+
+        // NOTE: Get balance.
         $body = [
             'user' => session()->data->userid,
             'token' => session()->data->token,
@@ -53,6 +87,7 @@ class Home extends BaseController
         //       "webbalance": 0
         //     }
         //   }
+
         $this->viewData['result'] = $result;
     }
 

@@ -98,10 +98,25 @@ define('EVENT_PRIORITY_HIGH', 10);
  */
 defined('POST')             || define('POST', 'post');
 defined('GET')              || define('GET', 'get');
-defined('WEB_AGENT')        || define('WEB_AGENT', 'DEMOUFA');
-defined('SECRET')           || define('SECRET', '0546ddc00f6c4378c2fdef66b5e199f0');
+
+
+// defined('WEB_AGENT')        || define('WEB_AGENT', 'DEMOUFA');
+// defined('SECRET')           || define('SECRET', '0546ddc00f6c4378c2fdef66b5e199f0');
+
+
 // defined('WEB_AGENT')        || define('WEB_AGENT', 'UFTW33');
 // defined('SECRET')           || define('SECRET', '8f37a5d102f826b89551f4386b859884');
+
+// GOD UFA
+// defined('WEB_AGENT')        || define('WEB_AGENT', 'ASIUFA');
+// defined('SECRET')           || define('SECRET', '4493fec6e119f864d078dd9fd66954c4');
+
+// UFA ODIN
+defined('WEB_AGENT')        || define('WEB_AGENT', 'OFFUFA');
+defined('SECRET')           || define('SECRET', 'cf36445e3237983317ee7a9def6a98ef');
+
+
+
 defined('API_URL')          || define('API_URL', 'https://demoapi.botbo21.com/apiv1/user/');
 defined('TELE_URL')         || define('TELE_URL', 'https://api.telegram.org/bot');
 defined('TELE_TOKEN')       || define('TELE_TOKEN', '6588300264:AAHn6T6xqpc0tSVPsg8CZ7eggYJCstF6FjU');

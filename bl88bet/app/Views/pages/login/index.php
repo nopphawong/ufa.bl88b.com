@@ -5,8 +5,9 @@
 <div class="logologin" style="position:relative;">
     <img class="imganimationlogin" src="<?= base_url() ?>assets/images/ufa_odin_1.png">
     <div style="position: absolute;top: 16px;right: 16px;display: flex;column-gap: 8px;">
-        <a href="<?= site_url('lang/th') ?>"><img src="assets/images/th.png" class="lang"></a>
-        <a href="<?= site_url('lang/en') ?>"><img src="assets/images/en.png" class="lang"></a>
+        <a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer"><img src="<?= base_url() ?>assets/images/line_circle.png" class="lang"></a>
+        <a href="<?= site_url('lang/th') ?>"><img src="<?= base_url() ?>assets/images/th.png" class="lang"></a>
+        <a href="<?= site_url('lang/en') ?>"><img src="<?= base_url() ?>assets/images/en.png" class="lang"></a>
     </div>
 </div>
 <form action="#" method="post" id="login_form" enctype="multipart/form-data">
@@ -73,25 +74,26 @@
                     },
                     success: function(response) {
                         spinner('hide')
-                        try {
-                            const {
-                                status,
-                                msg,
-                                data
-                            } = JSON.parse(response)
+                        console.log(JSON.parse(response));
+                        // try {
+                        //     const {
+                        //         status,
+                        //         msg,
+                        //         data
+                        //     } = JSON.parse(response)
 
-                            if (!status) {
-                                swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
-                            } else {
-                                swalFlashAlert(msg)
-                                setTimeout(function() {
-                                    window.location = './'
-                                }, 1000)
-                            }
-                        } catch (err) {
-                            console.log(err);
-                            swalError('<?= lang('Lang.dialog.confirm_btn') ?>', '<?= lang('Lang.error.something_went_wrong', ['Login 88']) ?>')
-                        }
+                        //     if (!status) {
+                        //         swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
+                        //     } else {
+                        //         swalFlashAlert(msg)
+                        //         setTimeout(function() {
+                        //             window.location = './'
+                        //         }, 1000)
+                        //     }
+                        // } catch (err) {
+                        //     console.log(err);
+                        //     swalError('<?= lang('Lang.dialog.confirm_btn') ?>', '<?= lang('Lang.error.something_went_wrong', ['Login 88']) ?>')
+                        // }
                     },
                     error: function(err) {
                         spinner('hide')

@@ -23,6 +23,7 @@ class APIService extends BaseController
             'm_ideposit',
             'm_iwithdraw',
             'm_ididwidlists',
+            'm_info',
         ];
 
         if (in_array($path, $endpoints)) {
