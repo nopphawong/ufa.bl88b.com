@@ -18,13 +18,12 @@ class Register extends BaseController
     {
         if ($this->request->isAJAX()) {
             $body = [
-                'tel' => $this->request->getVar('username'),
+                'user' => $this->request->getVar('username'),
             ];
-            return json_encode($body);
-            // $service = new APIService();
-            // $response = $service->serverService('m_sentotp', POST, $body);
-            // $result = json_decode($response);
-            // return $response;
+            $service = new APIService();
+            $response = $service->serverService('m_checkexits', POST, $body);
+            $result = json_decode($response);
+            return $response;
         }
     }
 
@@ -35,7 +34,7 @@ class Register extends BaseController
                 'accno' => trimReplace('-', '', $this->request->getVar('account_number')),
                 'bankid' => trimReplace('-', '', $this->request->getVar('financial_id')),
             ];
-
+            
             $service = new APIService();
             $response = $service->serverService('m_bankverifyx', POST, $body);
             return $response;

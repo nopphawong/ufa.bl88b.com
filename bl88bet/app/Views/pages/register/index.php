@@ -260,20 +260,19 @@
                         spinner('hide')
                         try {
                             // NOTE: Not requrest OTP.
-                            stepOneToTwo(JSON.parse(response))
+                            //  stepOneToTwo(JSON.parse(response))
 
-                            // NOTE: If using OTP.
-                            // const {
-                            //     status,
-                            //     msg,
-                            //     data
-                            // } = JSON.parse(response)
-
-                            // if (!status) {
-                            //     swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
-                            // } else {
-                            //     console.log(data);
-                            // }
+                            // NOTE: If using OTP or check exits.
+                            const {
+                                status,
+                                msg,
+                                data
+                            } = JSON.parse(response)
+                            if (!status) {
+                                swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
+                            } else {
+                                stepOneToTwo(JSON.parse(response))
+                            }
                         } catch (err) {
                             console.log(err);
                             swalError(`<?= lang('Lang.dialog.confirm_btn') ?>', ${err}`)
@@ -349,6 +348,7 @@
                     },
                     success: function(response) {
                         spinner('hide')
+                        console.log(JSON.parse(response));
                         try {
                             const {
                                 status,

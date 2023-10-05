@@ -115,6 +115,9 @@ defined('GET')              || define('GET', 'get');
 defined('WEB_AGENT')        || define('WEB_AGENT', 'OFFUFA');
 defined('SECRET')           || define('SECRET', 'cf36445e3237983317ee7a9def6a98ef');
 
+// UFA MASTER
+// defined('WEB_AGENT')        || define('WEB_AGENT', 'ENJUFA');
+// defined('SECRET')           || define('SECRET', '2a8a96960a2e922825ea5471251b4159');
 
 
 defined('API_URL')          || define('API_URL', 'https://demoapi.botbo21.com/apiv1/user/');
