@@ -272,7 +272,7 @@
                             if (!status) {
                                 swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
                             } else {
-                                stepOneToTwo(JSON.parse(response))
+                                stepOneToTwo(formData.get('username'))
                             }
                         } catch (err) {
                             console.log(err);
@@ -440,7 +440,7 @@
 
     // go step1 to step2
     function stepOneToTwo(data) {
-        username = data.tel
+        username = data
         $(".stepre01").hide();
         $(".stepre02").show();
         $(".headstep1").removeClass("active");

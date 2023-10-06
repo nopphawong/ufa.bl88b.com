@@ -108,12 +108,12 @@ defined('GET')              || define('GET', 'get');
 // defined('SECRET')           || define('SECRET', '8f37a5d102f826b89551f4386b859884');
 
 // GOD UFA
-// defined('WEB_AGENT')        || define('WEB_AGENT', 'ASIUFA');
-// defined('SECRET')           || define('SECRET', '4493fec6e119f864d078dd9fd66954c4');
+defined('WEB_AGENT')        || define('WEB_AGENT', 'ASIUFA');
+defined('SECRET')           || define('SECRET', '4493fec6e119f864d078dd9fd66954c4');
 
 // UFA ODIN
-defined('WEB_AGENT')        || define('WEB_AGENT', 'OFFUFA');
-defined('SECRET')           || define('SECRET', 'cf36445e3237983317ee7a9def6a98ef');
+// defined('WEB_AGENT')        || define('WEB_AGENT', 'OFFUFA');
+// defined('SECRET')           || define('SECRET', 'cf36445e3237983317ee7a9def6a98ef');
 
 // UFA MASTER
 // defined('WEB_AGENT')        || define('WEB_AGENT', 'ENJUFA');
