@@ -89,18 +89,11 @@ $formatter = new CustomFormatter();
     </div>
     <div class="swiper-container-2">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="<?= base_url() ?>assets/images/promotions/01.png">
-            </div>
-            <div class="swiper-slide">
-                <img src="<?= base_url() ?>assets/images/promotions/02.png">
-            </div>
-            <div class="swiper-slide">
-                <img src="<?= base_url() ?>assets/images/promotions/03.png">
-            </div>
-            <div class="swiper-slide">
-                <img src="<?= base_url() ?>assets/images/promotions/04.png">
-            </div>
+            <?php foreach ($banners as $baner) : ?>
+                <div class="swiper-slide">
+                    <img src="<?= $baner->image ?>">
+                </div>
+            <?php endforeach ?>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
