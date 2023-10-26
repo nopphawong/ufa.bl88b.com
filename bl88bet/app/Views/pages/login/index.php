@@ -74,26 +74,26 @@
                     },
                     success: function(response) {
                         spinner('hide')
-                        console.log(JSON.parse(response));
-                        // try {
-                        //     const {
-                        //         status,
-                        //         msg,
-                        //         data
-                        //     } = JSON.parse(response)
+                        // console.log(JSON.parse(response));
+                        try {
+                            const {
+                                status,
+                                msg,
+                                data
+                            } = JSON.parse(response)
 
-                        //     if (!status) {
-                        //         swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
-                        //     } else {
-                        //         swalFlashAlert(msg)
-                        //         setTimeout(function() {
-                        //             window.location = './'
-                        //         }, 1000)
-                        //     }
-                        // } catch (err) {
-                        //     console.log(err);
-                        //     swalError('<?= lang('Lang.dialog.confirm_btn') ?>', '<?= lang('Lang.error.something_went_wrong', ['Login 88']) ?>')
-                        // }
+                            if (!status) {
+                                swalError('<?= lang('Lang.dialog.confirm_btn') ?>', msg)
+                            } else {
+                                swalFlashAlert(msg)
+                                setTimeout(function() {
+                                    window.location = './'
+                                }, 1000)
+                            }
+                        } catch (err) {
+                            console.log(err);
+                            swalError('<?= lang('Lang.dialog.confirm_btn') ?>', '<?= lang('Lang.error.something_went_wrong', ['Login 88']) ?>')
+                        }
                     },
                     error: function(err) {
                         spinner('hide')
