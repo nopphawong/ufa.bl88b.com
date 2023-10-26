@@ -12,7 +12,7 @@ $formatter = new CustomFormatter();
         <!-- ส่วนหัว /ข้อมูลส่วนตัว----------------------------------------------- -->
         <div class="headmain">
             <div class="text-center">
-            <img class="imganimationlogin" style="margin:1em auto;" src="<?= base_url() ?>assets/images/ufa_odin_1.png">
+            <img class="imganimationlogin" style="margin:1em auto;" src="<?= $logo ?>">
             </div>
      
             <table width="100%">

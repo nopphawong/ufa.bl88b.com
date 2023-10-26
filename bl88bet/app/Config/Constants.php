@@ -100,8 +100,8 @@ defined('POST')             || define('POST', 'post');
 defined('GET')              || define('GET', 'get');
 
 
-// defined('WEB_AGENT')        || define('WEB_AGENT', 'DEMOUFA');
-// defined('SECRET')           || define('SECRET', '0546ddc00f6c4378c2fdef66b5e199f0');
+defined('WEB_AGENT')        || define('WEB_AGENT', 'DEMOUFA');
+defined('SECRET')           || define('SECRET', '0546ddc00f6c4378c2fdef66b5e199f0');
 
 
 // defined('WEB_AGENT')        || define('WEB_AGENT', 'UFTW33');
