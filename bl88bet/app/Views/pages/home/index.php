@@ -89,11 +89,17 @@ $formatter = new CustomFormatter();
     </div>
     <div class="swiper-container-2">
         <div class="swiper-wrapper">
-            <?php foreach ($banners as $baner) : ?>
+            <?php if (empty($banners)) : ?>
                 <div class="swiper-slide">
-                    <img src="<?= $baner->image ?>">
+                    <img src="<?= site_url("assets/images/default/banner_default.png") ?>">
                 </div>
-            <?php endforeach ?>
+            <?php else : ?>
+                <?php foreach ($banners as $baner) : ?>
+                    <div class="swiper-slide">
+                        <img src="<?= $baner->image ?>">
+                    </div>
+                <?php endforeach ?>
+            <?php endif ?>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
