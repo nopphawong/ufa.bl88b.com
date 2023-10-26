@@ -220,6 +220,9 @@
     var financial_id
     var account_number
     var account_name
+    // NOTE: Get refference from url.
+    const urlParams = new URLSearchParams(window.location.search);
+    var ref = urlParams.get('ref');
 
     $(function() {
         $.validator.addMethod(
@@ -401,6 +404,7 @@
                 formData.set('password', password)
                 formData.set('financial_id', financial_id)
                 formData.set('account_number', account_number)
+                if(ref) formData.set('ref', ref)
                 $.ajax({
                     url: '<?= base_url('/register/submit') ?>',
                     method,
@@ -430,6 +434,7 @@
                         }
                     },
                     error: function(err) {
+                        spinner('hide')
                         console.log(err);
                         swalError('<?= lang('Lang.dialog.confirm_btn') ?>', '<?= lang('Lang.error.something_went_wrong', ['Register register_submit']) ?>')
                     }
@@ -511,4 +516,3 @@
     $('.bankselectpopup').hide();
 </script>
 
-<?= $this->endSection(); ?>

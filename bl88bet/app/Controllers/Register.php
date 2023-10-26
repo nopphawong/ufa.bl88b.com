@@ -54,6 +54,13 @@ class Register extends BaseController
                 'otpcode' => '123456',
                 'otpref' => 'PDFDA'
             ];
+            // NOTE: Has ref.
+            $ref_param = $this->request->getVar('ref');
+            if($ref_param)
+                $body = array_merge(
+                    $body,
+                    ['ref' => $ref_param]
+                );
             $service = new APIService();
             $response = $service->serverService('m_register', POST, $body);
             return $response;
