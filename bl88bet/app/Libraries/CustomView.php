@@ -32,7 +32,7 @@ class CustomView
             "banners" => [],
         );
         $info = $portal->agent_info();
-        if ($info->status) $result->logo = $info->data->logo;
+        if ($info->status) $result->logo = $info->data->logo ? $info->data->logo : site_url("assets/images/default/logo_default.png");
 
         $banners = $portal->banner_list();
         if ($banners->status) $result->banners = $banners->data;
