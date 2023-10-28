@@ -39,7 +39,7 @@ class CustomView
             $this->viewData["line_link"] = $info->data->line_link;
             $this->viewData["logo"] = $info->data->logo ? $info->data->logo : site_url("assets/images/default/logo_default.png");
         }
-        $banners = $portal->banner_list(["status" => 1]);
+        $banners = $portal->banner_list();
         if ($banners->status) $this->viewData["banners"] = $banners->data;
     }
 }

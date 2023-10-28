@@ -26,7 +26,7 @@ class Portal
     // banner
     public function banner_list($data = array())
     {
-        return self::post("banner/list", $data);
+        return self::post("banner/list/actived", $data);
     }
     public function banner_info($data = array())
     {
