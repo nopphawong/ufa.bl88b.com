@@ -94,9 +94,9 @@ $formatter = new CustomFormatter();
                     <img src="<?= site_url("assets/images/default/banner_default.png") ?>">
                 </div>
             <?php else : ?>
-                <?php foreach ($banners as $baner) : ?>
+                <?php foreach ($banners as $banner) : ?>
                     <div class="swiper-slide">
-                        <img src="<?= $baner->image ?>">
+                        <img src="<?= $banner->image ?>" alt="<?= $banner->name ?>" title="<?= $banner->detail ?>">
                     </div>
                 <?php endforeach ?>
             <?php endif ?>

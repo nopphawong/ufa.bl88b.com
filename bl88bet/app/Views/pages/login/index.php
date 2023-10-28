@@ -5,7 +5,7 @@
 <div class="logologin" style="position:relative;">
     <img class="imganimationlogin" src="<?= $logo ?>">
     <div style="position: absolute;top: 16px;right: 16px;display: flex;column-gap: 8px;">
-        <a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer"><img src="<?= base_url() ?>assets/images/line_circle.png" class="lang"></a>
+        <a href="<?= $line_link ?>" target="_blank" rel="noreferrer"><img src="<?= base_url() ?>assets/images/line_circle.png" class="lang"></a>
         <a href="<?= site_url('lang/th') ?>"><img src="<?= base_url() ?>assets/images/th.png" class="lang"></a>
         <a href="<?= site_url('lang/en') ?>"><img src="<?= base_url() ?>assets/images/en.png" class="lang"></a>
     </div>

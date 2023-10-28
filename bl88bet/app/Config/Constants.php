@@ -100,8 +100,8 @@ defined('POST')             || define('POST', 'post');
 defined('GET')              || define('GET', 'get');
 
 
-// defined('WEB_AGENT')        || define('WEB_AGENT', 'DEMOUFA');
-// defined('SECRET')           || define('SECRET', '0546ddc00f6c4378c2fdef66b5e199f0');
+defined('WEB_AGENT')        || define('WEB_AGENT', 'DEMOUFA');
+defined('SECRET')           || define('SECRET', '0546ddc00f6c4378c2fdef66b5e199f0');
 
 
 // defined('WEB_AGENT')        || define('WEB_AGENT', 'UFTW33');
@@ -112,8 +112,8 @@ defined('GET')              || define('GET', 'get');
 // defined('SECRET')           || define('SECRET', '4493fec6e119f864d078dd9fd66954c4');
 
 // UFA ODIN
-defined('WEB_AGENT')        || define('WEB_AGENT', 'OFFUFA');
-defined('SECRET')           || define('SECRET', 'cf36445e3237983317ee7a9def6a98ef');
+// defined('WEB_AGENT')        || define('WEB_AGENT', 'OFFUFA');
+// defined('SECRET')           || define('SECRET', 'cf36445e3237983317ee7a9def6a98ef');
 
 // UFA MASTER
 // defined('WEB_AGENT')        || define('WEB_AGENT', 'ENJUFA');

@@ -12,9 +12,9 @@ $formatter = new CustomFormatter();
         <!-- ส่วนหัว /ข้อมูลส่วนตัว----------------------------------------------- -->
         <div class="headmain">
             <div class="text-center">
-            <img class="imganimationlogin" style="margin:1em auto;" src="<?= $logo ?>">
+                <img class="imganimationlogin" style="margin:1em auto;" src="<?= $logo ?>">
             </div>
-     
+
             <table width="100%">
                 <tr>
                     <!-- <td style="width: 15%;text-align: center; padding-left: 15px;  ">
@@ -28,9 +28,9 @@ $formatter = new CustomFormatter();
                         <table align="right">
                             <tr>
                                 <td style="padding-right: 2px;">
-                                <a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="tip_trigger">
-                                    <div><img src="<?= base_url() ?>assets/images/line_contact.png" style="width: 36px;"></div>
-                                </a>
+                                    <a href="<?= $line_link ?>" target="_blank" rel="noreferrer" class="tip_trigger">
+                                        <div><img src="<?= base_url() ?>assets/images/line_contact.png" style="width: 36px;"></div>
+                                    </a>
                                 </td>
                                 <td class="righttopmain">
                                     <span class="bglangbtn">
@@ -113,7 +113,7 @@ $formatter = new CustomFormatter();
 <div class="heightmobile"></div>
 
 
-<a href="https://lin.ee/zWj44TZ" target="_blank" rel="noreferrer" class="tip_trigger">
+<a href="<?= $line_link ?>" target="_blank" rel="noreferrer" class="tip_trigger">
     <div class="linebtn"><img src="<?= base_url() ?>assets/fonts/chat2.svg" style="width: 70px;"></div>
 </a>
 
